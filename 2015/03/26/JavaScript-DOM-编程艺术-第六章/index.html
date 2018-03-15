@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript DOM 编程艺术 第六章 | Troy&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940function prepareGallery()&amp;#123;    if(!document.getElementById||!document.getElementsByTagName||!document.getElementById(&quot;imagega">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript DOM 编程艺术 第六章">
+<meta property="og:url" content="http://www.tangrui.win/blog/2015/03/26/JavaScript-DOM-编程艺术-第六章/index.html">
+<meta property="og:site_name" content="Troy&#39;s Blog">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940function prepareGallery()&amp;#123;    if(!document.getElementById||!document.getElementsByTagName||!document.getElementById(&quot;imagega">
+<meta property="og:locale" content="ZH-CN">
+<meta property="og:updated_time" content="2018-01-24T02:05:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript DOM 编程艺术 第六章">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940function prepareGallery()&amp;#123;    if(!document.getElementById||!document.getElementsByTagName||!document.getElementById(&quot;imagega">
+  
+    <link rel="alternative" href="/atom.xml" title="Troy&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/favicon.ico">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body style="height: 100%">
+  <div id="bg">
+    <div id="bg-mask">
+      <h1>Troy's Blog</h1>
+      <p>思想，故事和灵感</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="http://tangrui.win">About</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
+    </ul>
+  </nav>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/blog/">Troy&#39;s Blog</a>
+	</h1>
+	<p class="cite-myself">思想，故事和灵感</p>
+</header>
+    <div id="main">
+      <article id="post-JavaScript-DOM-编程艺术-第六章" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/03/26/JavaScript-DOM-编程艺术-第六章/" class="article-date">
+  <time datetime="2015-03-26T12:31:52.000Z" itemprop="datePublished">03-26-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      JavaScript DOM 编程艺术 第六章
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prepareGallery</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementById||!<span class="built_in">document</span>.getElementsByTagName||!<span class="built_in">document</span>.getElementById(<span class="string">"imagegallery"</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">//检测浏览器是否支持以上方法及id为"imagegallery"的对象是否存在</span></span><br><span class="line">    <span class="keyword">var</span> gallery = <span class="built_in">document</span>.getElementById(<span class="string">"imagegallery"</span>);</span><br><span class="line">    <span class="comment">//将id为"imagegallery"的对象赋给变量 gallery</span></span><br><span class="line">    <span class="keyword">var</span> links = gallery.getElementsByTagName(<span class="string">"a"</span>);</span><br><span class="line">    <span class="comment">//将gallery里的所有a元素赋给links变量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; links.length; i ++)&#123;</span><br><span class="line">        <span class="comment">//遍历links里的元素</span></span><br><span class="line">        links.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> showPic(<span class="keyword">this</span>) ? <span class="literal">false</span> : <span class="literal">true</span>;</span><br><span class="line">            <span class="comment">//像links里的元素添加onclick事件</span></span><br><span class="line">            <span class="comment">//如果showPic函数返回true则onclick事件为false，浏览器检测不到点击事件</span></span><br><span class="line">            <span class="comment">//就不会打开新链接，反之亦然</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showPic</span>(<span class="params">whichpic</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementById(<span class="string">"placeholder"</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">//检查“placeholder”是否存在</span></span><br><span class="line">    <span class="keyword">var</span> source = whichpic.getAttribute(<span class="string">"href"</span>);</span><br><span class="line">    <span class="comment">//获取运行showPic函数的元素的"href"值并将其赋给source变量</span></span><br><span class="line">    <span class="keyword">var</span> placeholder = <span class="built_in">document</span>.getElementById(<span class="string">"placeholder"</span>);</span><br><span class="line">    <span class="comment">//获取id为"placeholder"的对象并将其赋给placeholder变量</span></span><br><span class="line">    <span class="keyword">if</span>(placeholder.nodeName != <span class="string">"IMG"</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">//检查placeholder的节点名称是不是"IMG"(大写)，检查它是不是img元素</span></span><br><span class="line">    placeholder.setAttribute(<span class="string">"src"</span>, source);</span><br><span class="line">    <span class="comment">//设置placeholder的"src"属性为source变量的值</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">document</span>.getElementById(<span class="string">"description"</span>))&#123;</span><br><span class="line">        <span class="comment">//如果存在id为"description"的对象的话，就运行一下代码</span></span><br><span class="line">        <span class="keyword">var</span> text = whichpic.getAttribute(<span class="string">"title"</span>) ? whichpic.getAttribute(<span class="string">"title"</span>) : <span class="string">""</span>;</span><br><span class="line">        <span class="comment">//如果存在"title"属性的话就将值赋给text，如果没有就将空字符串赋给text</span></span><br><span class="line">        <span class="keyword">var</span> description = <span class="built_in">document</span>.getElementById(<span class="string">"description"</span>);</span><br><span class="line">        <span class="keyword">if</span>(description.firstChild.nodeType == <span class="number">3</span>)&#123;</span><br><span class="line">            description.fitstChild.nodeValue = text;</span><br><span class="line">            <span class="comment">//将description的第一个子元素(即文本节点)的节点值设置为text的值</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="DOM-Core-和-HTML-DOM"><a href="#DOM-Core-和-HTML-DOM" class="headerlink" title="DOM Core 和 HTML-DOM"></a>DOM Core 和 HTML-DOM</h3><p>在上面用到了以下几种DOM方法：</p>
+<ul>
+<li>getElementById</li>
+<li>getElementsByTagName</li>
+<li>getAttribute</li>
+<li>setAttribute</li>
+</ul>
+<p>这些方法都是DOM Core的组成部分。它们并不专属于JavaScript，支持DOM的任何一种程序设计语言都可以使用它们。<br><br><br><br>HTML-DOM提供了许多描述各种HTML元素的属性。比如：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">element</span>.getAttribute(<span class="string">"src"</span>)</span><br><span class="line">//简化为</span><br><span class="line"><span class="keyword">element</span>.src</span><br></pre></td></tr></table></figure>
+<p>又比如说，HTML-DOM提供了一个body对象，可以把：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">"body"</span>)[<span class="number">0</span>]</span><br><span class="line"><span class="comment">//简化为</span></span><br><span class="line"><span class="built_in">document</span>.body</span><br></pre></td></tr></table></figure>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/04/01/JavaScript-DOM-编程艺术-第七章/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript DOM 编程艺术 第七章 动态创建标记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/03/16/JavaScript-DOM-编程艺术-第五章/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          JavaScript DOM 编程艺术 第五章
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="post-JavaScript-DOM-编程艺术-第六章" data-title="JavaScript DOM 编程艺术 第六章" data-url="http://www.tangrui.win/blog/2015/03/26/JavaScript-DOM-编程艺术-第六章/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"troywith77"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0]
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+	<!-- 多说公共JS代码 end -->
+</section>
+
+    </div>
+    <footer id="footer">
+	<div class="footer-blog-title">
+		<p>&copy; 2018 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<p>Glad to meet you here!<br /></p>
+		<p>If you like the theme, go get it! <a href="https://github.com/troywith77/zenT">Install !</a></p>
+	</div>
+</footer>
+    
+
+<script src="/blog/js/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+  </div>
+</body>
+</html>

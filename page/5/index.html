@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Troy&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="属于 Troy 的写字的地方 | Troy&apos;s Blog | blog | 前端 | Front-end">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Troy&#39;s Blog">
+<meta property="og:url" content="http://www.tangrui.win/blog/page/5/index.html">
+<meta property="og:site_name" content="Troy&#39;s Blog">
+<meta property="og:description" content="属于 Troy 的写字的地方 | Troy&apos;s Blog | blog | 前端 | Front-end">
+<meta property="og:locale" content="ZH-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Troy&#39;s Blog">
+<meta name="twitter:description" content="属于 Troy 的写字的地方 | Troy&apos;s Blog | blog | 前端 | Front-end">
+  
+    <link rel="alternative" href="/atom.xml" title="Troy&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/favicon.ico">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body style="height: 100%">
+  <div id="bg">
+    <div id="bg-mask">
+      <h1>Troy's Blog</h1>
+      <p>思想，故事和灵感</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="http://tangrui.win">About</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
+    </ul>
+  </nav>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/blog/">Troy&#39;s Blog</a>
+	</h1>
+	<p class="cite-myself">思想，故事和灵感</p>
+</header>
+    <div id="main">
+      
+  
+    <article id="post-JavaScript-DOM-编程艺术-第四章" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/03/10/JavaScript-DOM-编程艺术-第四章/" class="article-date">
+  <time datetime="2015-03-10T04:31:43.000Z" itemprop="datePublished">03-10-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2015/03/10/JavaScript-DOM-编程艺术-第四章/">JavaScript DOM 编程艺术 第四章</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+			<h3 id="书中此章完整代码"><a href="#书中此章完整代码" class="headerlink" title="书中此章完整代码"></a>书中此章完整代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showPic</span>(<span class="params">whichpic</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> source = whichpic.getAttribute(<span class="string">"href"</span>);</span><br><span class="line">    <span class="keyword">var</span> placeholder = <span class="built_in">document</span>.getElementById(<span class="string">"placeholder"</span>);</span><br><span class="line">    placeholder.setAttribute(<span class="string">"src"</span>, source);</span><br><span class="line">    <span class="keyword">var</span> text = whichpic.getAttribute(<span class="string">"title"</span>);</span><br><span class="line">    <span class="keyword">var</span> description = <span class="built_in">document</span>.getElementById(<span class="string">"description"</span>);</span><br><span class="line">    description.firstChild.nodeValue = text;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="setAttribute-方法"><a href="#setAttribute-方法" class="headerlink" title="setAttribute 方法"></a>setAttribute 方法</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setAttribute(<span class="string">"string name"</span>, <span class="keyword">string</span> <span class="keyword">value</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用 setAttribute 方法来刷新元素的属性。</li>
+</ul>
+<h3 id="获取属性"><a href="#获取属性" class="headerlink" title="获取属性"></a>获取属性</h3><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getElementById(<span class="string">"ID"</span>)<span class="comment">;</span></span><br><span class="line">getElementsByTagName(<span class="string">"Tag name"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>getElementsByTagName() 方法返回元素的顺序是它们在文档中的顺序。取得的是一个数组，需要索引。</li>
+</ul>
+			
+				<p class="article-more-link">
+					<a href="/blog/2015/03/10/JavaScript-DOM-编程艺术-第四章/#more">Read More</a>
+				</p>
+      
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+  
+    <article id="post-JavaScript-DOM-编程艺术-第三章" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/03/07/JavaScript-DOM-编程艺术-第三章/" class="article-date">
+  <time datetime="2015-03-07T13:20:54.000Z" itemprop="datePublished">03-07-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2015/03/07/JavaScript-DOM-编程艺术-第三章/">JavaScript DOM 编程艺术 第三章</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+			<h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><p>DOM（Document Object Model）</p>
+<h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h3><p>节点表示网络中的一个连接点。</p>
+<h4 id="元素节点"><a href="#元素节点" class="headerlink" title="元素节点"></a>元素节点</h4><p>标签的名字就是元素的名字，元素可以包含其他的元素。唯一不被包含在其他元素内的元素是<br>&lt; html &gt;元素，它是我们节点树的根元素。</p>
+<h4 id="文本节点"><a href="#文本节点" class="headerlink" title="文本节点"></a>文本节点</h4><p>元素节点是节点类型的一种。如果一份文档完全由空白元素组成，它将只有一个结构，而不会包含什么内容。</p>
+<h4 id="属性节点"><a href="#属性节点" class="headerlink" title="属性节点"></a>属性节点</h4><p>属性节点可以对元素做出更具体的描述，如&lt; title &gt;、&lt; href &gt;。因为属性总是被放在起始标签里，所以属性节点总是被包含在元素节点中。并非所有的元素都包含着属性，但所有的属性都被元素包含。</p>
+<h4 id="获取元素"><a href="#获取元素" class="headerlink" title="获取元素"></a>获取元素</h4><ol>
+<li><p>getElementById方法。这个方法将返回一个与给定id属性值的元素节点对应的对象。它是document对象特有的函数，在脚本代码中，函数名的后面必须跟有一对圆括号，这对圆括号包含着函数的参数。</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getElementById(<span class="string">"id"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>getElementsByTagName方法。这个方法返回一个对象数组，每个对象分别对应着给定标签的一个元素。这个方法也只有一个参数，就是标签的名字。这个调用返回一个对象数组，我们可以利用length属性查出这个数组里的元素个数。注意：即使在整个文档里这个标签只有一个元素，此方法仍然返回一个数组，如&lt; body &gt;,此时，该数组的长度为1.</p>
+</li>
+<li><p>HTML5 DOM 中新增了一个方法：getElementsByClassName方法。由于这个方法还比较新，某些DOM实现里可能还没有，因此使用时要注意。使用此方法时将类名传入参数，要指定多个类名时，只需用空格隔开。</p>
+</li>
+</ol>
+			
+				<p class="article-more-link">
+					<a href="/blog/2015/03/07/JavaScript-DOM-编程艺术-第三章/#more">Read More</a>
+				</p>
+      
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+  
+    <article id="post-JavaScript-DOM-编程艺术-第二章-语法" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/03/06/JavaScript-DOM-编程艺术-第二章-语法/" class="article-date">
+  <time datetime="2015-03-06T15:26:31.000Z" itemprop="datePublished">03-06-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2015/03/06/JavaScript-DOM-编程艺术-第二章-语法/">JavaScript DOM 编程艺术 第二章 语法</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+			<p>网上有很多人都推荐看这本书来入门JavaScript，正好当当打折就买了一本这个和一本高级程序设计。倒是这本比高程要薄好多啊啊啊，先看完这本，跟着把实例做完之后再去看”红宝书”吧~</p>
+<h3 id="语句（statement）"><a href="#语句（statement）" class="headerlink" title="语句（statement）"></a>语句（statement）</h3><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">first statement<span class="comment">;</span></span><br><span class="line">second statement<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>建议每条语句独占一行，每条语句末尾加上分号。</p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注释能吃吗</span></span><br></pre></td></tr></table></figure>
+<p>注释可以使用两个斜杠开始，后面的内容就是注释，会被JavaScript解释器忽略。<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注释能吃吗</span></span><br><span class="line">  我想吃哇</span><br></pre></td></tr></table></figure></p>
+<p>这样是不行的，多行的话每行都需要加两个斜杠。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  不管能不能吃</span></span><br><span class="line"><span class="comment">    我都要吃掉   */</span></span><br></pre></td></tr></table></figure></p>
+<p>如果要插入大段注释，建议使用这种方法。</p>
+			
+				<p class="article-more-link">
+					<a href="/blog/2015/03/06/JavaScript-DOM-编程艺术-第二章-语法/#more">Read More</a>
+				</p>
+      
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+  
+    <article id="post-博客-1" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/03/01/博客-1/" class="article-date">
+  <time datetime="2015-02-28T16:02:07.000Z" itemprop="datePublished">03-01-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2015/03/01/博客-1/">博客 #1</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>终于把hexo的博客搭起来了，呼呼(～ o ～)~zZ</p>
+<p>开始前端的学习！！！</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/blog/page/4/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/3/">3</a><a class="page-number" href="/blog/page/4/">4</a><span class="page-number current">5</span>
+    </nav>
+  
+
+    </div>
+    <footer id="footer">
+	<div class="footer-blog-title">
+		<p>&copy; 2018 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<p>Glad to meet you here!<br /></p>
+		<p>If you like the theme, go get it! <a href="https://github.com/troywith77/zenT">Install !</a></p>
+	</div>
+</footer>
+    
+
+<script src="/blog/js/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+  </div>
+</body>
+</html>

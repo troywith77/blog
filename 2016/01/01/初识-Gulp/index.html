@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  
+  <title>初识 Gulp | Troy&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="元旦放假想自己用 Angular 做一个简单的个人任务管理系统，之前 用 ng1 做过一个 TODO，实习公司里也是用 ng1 的，但是老大没让我写过什么功能模块，SaaS 里都是在改啊改 bug ，还是自己学学，写写小东西吧。正好用一下 Gulp ，本来想学下 webpack 的，感觉还不太成熟，也没太了解过，自己之前也就用过 grunt ，而且基本上都是别人配置好的。听过 Gulp 炒鸡容易上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识 Gulp">
+<meta property="og:url" content="http://www.tangrui.win/blog/2016/01/01/初识-Gulp/index.html">
+<meta property="og:site_name" content="Troy&#39;s Blog">
+<meta property="og:description" content="元旦放假想自己用 Angular 做一个简单的个人任务管理系统，之前 用 ng1 做过一个 TODO，实习公司里也是用 ng1 的，但是老大没让我写过什么功能模块，SaaS 里都是在改啊改 bug ，还是自己学学，写写小东西吧。正好用一下 Gulp ，本来想学下 webpack 的，感觉还不太成熟，也没太了解过，自己之前也就用过 grunt ，而且基本上都是别人配置好的。听过 Gulp 炒鸡容易上">
+<meta property="og:locale" content="ZH-CN">
+<meta property="og:updated_time" content="2018-01-24T02:05:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识 Gulp">
+<meta name="twitter:description" content="元旦放假想自己用 Angular 做一个简单的个人任务管理系统，之前 用 ng1 做过一个 TODO，实习公司里也是用 ng1 的，但是老大没让我写过什么功能模块，SaaS 里都是在改啊改 bug ，还是自己学学，写写小东西吧。正好用一下 Gulp ，本来想学下 webpack 的，感觉还不太成熟，也没太了解过，自己之前也就用过 grunt ，而且基本上都是别人配置好的。听过 Gulp 炒鸡容易上">
+  
+    <link rel="alternative" href="/atom.xml" title="Troy&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/favicon.ico">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body style="height: 100%">
+  <div id="bg">
+    <div id="bg-mask">
+      <h1>Troy's Blog</h1>
+      <p>思想，故事和灵感</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="http://tangrui.win">About</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
+    </ul>
+  </nav>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/blog/">Troy&#39;s Blog</a>
+	</h1>
+	<p class="cite-myself">思想，故事和灵感</p>
+</header>
+    <div id="main">
+      <article id="post-初识-Gulp" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2016/01/01/初识-Gulp/" class="article-date">
+  <time datetime="2016-01-01T12:23:28.000Z" itemprop="datePublished">01-01-2016</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      初识 Gulp
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>元旦放假想自己用 Angular 做一个简单的个人任务管理系统，之前 用 ng1 做过一个 TODO，实习公司里也是用 ng1 的，但是老大没让我写过什么功能模块，SaaS 里都是在改啊改 bug ，还是自己学学，写写小东西吧。正好用一下 Gulp ，本来想学下 webpack 的，感觉还不太成熟，也没太了解过，自己之前也就用过 grunt ，而且基本上都是别人配置好的。听过 Gulp 炒鸡容易上手，就把这次的使用情况记录下来吧。</p>
+<p>首先全局安装下 gulp</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp -g</span><br></pre></td></tr></table></figure>
+<p>新建一个文件夹并初始化一个 <code>packge.json</code> 文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir sys &amp;&amp; cd sys</span><br></pre></td></tr></table></figure>
+<p>项目的目录结构如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">app/</span><br><span class="line"><span class="comment">//存放静态文件</span></span><br><span class="line">    components  /</span><br><span class="line">    css/</span><br><span class="line">    images/</span><br><span class="line">    scripts/</span><br><span class="line">    scss/</span><br><span class="line">    index.html</span><br><span class="line">dist/</span><br><span class="line"><span class="comment">//存放编译后的文件</span></span><br><span class="line">node_modules/</span><br><span class="line">gulpfile.js</span><br><span class="line">package.json</span><br></pre></td></tr></table></figure>
+<p>新建一个 <code>gulpfile.js</code> 文件，并编辑</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>)</span><br><span class="line"><span class="comment">//在项目中引入 gulp</span></span><br></pre></td></tr></table></figure>
+<p>由于我在项目中使用的是<code>sass</code>，所以我想要一个插件可以帮我把<code>.scss</code>编译成<code>css</code>文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-sass --save-dev</span><br><span class="line"><span class="comment">//安装 gulp-sass 插件</span></span><br><span class="line"><span class="comment">//以下省略安装步骤</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//js</span></span><br><span class="line"><span class="keyword">var</span> sass = <span class="built_in">require</span>(<span class="string">'gulp-sass'</span>);</span><br><span class="line"><span class="comment">//引入gulp-sass插件</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>我们可以创建一个任务来使用 <code>gulp-sass</code> 插件， 想要创建一个任务非常简单</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'task-name'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	doing...</span><br><span class="line">	<span class="comment">//so easy~</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//我们来创建一个 'sass' 任务来编译 sass/scss 文件,注意gulp的链式结构</span></span><br><span class="line">gulp.task(<span class="string">'sass'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> gulp.src(<span class="string">'app/scss/**/*.scss'</span>)  <span class="comment">//指定scss来源</span></span><br><span class="line">	    .pipe(sass())   <span class="comment">//执行一次gulp-sass编译命令</span></span><br><span class="line">	    .pipe(gulp.dest(app/css))   <span class="comment">//指定编译后的文件目录</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这样一来我就可以在修改<code>.scss</code>文件之后在iTerm里用<code>gulp sass</code>命令来编译<code>scss</code>文件了</p>
+<p>但是每一次保存<code>.scss</code>之后都要手动编译一次，这样太没有效率，我们可以使用gulp的watch方法来监听我们指定的文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'watch'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.watch(<span class="string">'app/scss/**/*.scss'</span>, [<span class="string">'sass'</span>])</span><br><span class="line">    <span class="comment">//先指定文件目录，然后添加要执行的方法</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>为了提高效率，我们还可以使用<code>browser-sync</code>来在指定文件发生更改之后来自动刷新一下页面</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> browserSync = <span class="built_in">require</span>(<span class="string">'browser-sync'</span>);</span><br><span class="line"><span class="comment">//制定一下文件根目录</span></span><br><span class="line">gulp.task(<span class="string">'browserSync'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    browserSync: (&#123;</span><br><span class="line">        server: &#123;</span><br><span class="line">            baseDir: <span class="string">'app'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//稍微做一点修改就可以在编译scss文件之后自动刷新页面</span></span><br><span class="line">gulp.task(<span class="string">'sass'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    .pipe(browserSync.reload(&#123;</span><br><span class="line">        stream: <span class="literal">true</span></span><br><span class="line">    &#125;))</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//同时我们还要做一点修改，来让watch命令执行之前先执行一下browserSync和sass命令，相当于给watch命令添加了依赖吧</span></span><br><span class="line">gulp.task(<span class="string">'watch'</span>, [<span class="string">'browserSync'</span>, <span class="string">'sass'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>现在每次修改保存scss文件之后gulp都会自动编译成css文件并自动刷新页面了</p>
+<p>现在我们添加其他需要自动刷新的文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'watch'</span>, [<span class="string">'browserSync'</span>, <span class="string">'sass'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.watch(<span class="string">'app/scss/**/*.scss'</span>, [<span class="string">'sass'</span>]);</span><br><span class="line">    gulp.watch(<span class="string">'app/components/**/*.html'</span>, browserSync.reload);</span><br><span class="line">	gulp.watch(<span class="string">'app/*.html'</span>, browserSync.reload);</span><br><span class="line">	gulp.watch(<span class="string">'app/scripts/**/*.js'</span>, browserSync.reload);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/01/09/编写一个轻知乎日报/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          编写一个轻知乎日报
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/07/28/Parsing-URLs-with-the-DOM/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Parsing URLs with the DOM!
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="post-初识-Gulp" data-title="初识 Gulp" data-url="http://www.tangrui.win/blog/2016/01/01/初识-Gulp/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"troywith77"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0]
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+	<!-- 多说公共JS代码 end -->
+</section>
+
+    </div>
+    <footer id="footer">
+	<div class="footer-blog-title">
+		<p>&copy; 2018 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<p>Glad to meet you here!<br /></p>
+		<p>If you like the theme, go get it! <a href="https://github.com/troywith77/zenT">Install !</a></p>
+	</div>
+</footer>
+    
+
+<script src="/blog/js/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+  </div>
+</body>
+</html>

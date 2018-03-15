@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Angular-Meteor 学习笔记 | Troy&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="之前实习的公司官网使用Meteor开发的，用了三个月，感觉Meteor真的是可以很方便很快速的进行开发。正好现在有时间，把Angular和Meteor结合起来学习一下，记下一些心得吧~  Meteor服务器开启时会扫描所有的HTML文件，然后把其中所有的&amp;lt;html&amp;gt;、&amp;lt;head&amp;gt;、&amp;lt;body&amp;gt;标签里的内容融合在一起。 helper是reactiv的，函数内的数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular-Meteor 学习笔记">
+<meta property="og:url" content="http://www.tangrui.win/blog/2016/03/07/angular-meteor-学习笔记/index.html">
+<meta property="og:site_name" content="Troy&#39;s Blog">
+<meta property="og:description" content="之前实习的公司官网使用Meteor开发的，用了三个月，感觉Meteor真的是可以很方便很快速的进行开发。正好现在有时间，把Angular和Meteor结合起来学习一下，记下一些心得吧~  Meteor服务器开启时会扫描所有的HTML文件，然后把其中所有的&amp;lt;html&amp;gt;、&amp;lt;head&amp;gt;、&amp;lt;body&amp;gt;标签里的内容融合在一起。 helper是reactiv的，函数内的数据">
+<meta property="og:locale" content="ZH-CN">
+<meta property="og:updated_time" content="2018-01-24T02:05:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular-Meteor 学习笔记">
+<meta name="twitter:description" content="之前实习的公司官网使用Meteor开发的，用了三个月，感觉Meteor真的是可以很方便很快速的进行开发。正好现在有时间，把Angular和Meteor结合起来学习一下，记下一些心得吧~  Meteor服务器开启时会扫描所有的HTML文件，然后把其中所有的&amp;lt;html&amp;gt;、&amp;lt;head&amp;gt;、&amp;lt;body&amp;gt;标签里的内容融合在一起。 helper是reactiv的，函数内的数据">
+  
+    <link rel="alternative" href="/atom.xml" title="Troy&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/favicon.ico">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body style="height: 100%">
+  <div id="bg">
+    <div id="bg-mask">
+      <h1>Troy's Blog</h1>
+      <p>思想，故事和灵感</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="http://tangrui.win">About</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
+    </ul>
+  </nav>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/blog/">Troy&#39;s Blog</a>
+	</h1>
+	<p class="cite-myself">思想，故事和灵感</p>
+</header>
+    <div id="main">
+      <article id="post-angular-meteor-学习笔记" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2016/03/07/angular-meteor-学习笔记/" class="article-date">
+  <time datetime="2016-03-07T05:19:08.000Z" itemprop="datePublished">03-07-2016</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      Angular-Meteor 学习笔记
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>之前实习的公司官网使用Meteor开发的，用了三个月，感觉Meteor真的是可以很方便很快速的进行开发。正好现在有时间，把Angular和Meteor结合起来学习一下，记下一些心得吧~</p>
+<ul>
+<li>Meteor服务器开启时会扫描所有的HTML文件，然后把其中所有的<code>&lt;html&gt;</code>、<code>&lt;head&gt;</code>、<code>&lt;body&gt;</code>标签里的内容融合在一起。</li>
+<li><code>helper</code>是reactiv的，函数内的数据一旦改变，函数就会重新运行一次。</li>
+<li>Meteor.startup函数可以在Meteor启动时执行内部的函数。</li>
+<li><code>collection_name.find({}).fetch()</code>, <code>collection_name.insert()</code>, <code>db.parties.remove( {&quot;_id&quot;: &quot;N4KzMEvtm4dYvk2TF&quot;});</code></li>
+<li><p>JS里访问Collection是从<code>Parties</code>变量访问， Mongo Shell 里从<code>db.parties</code>访问。</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Parties</span> = new Mongo.Collection(<span class="string">'parties'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 Controoler as 语法，先将 $scope 改为 this， 然后引入 $reactive 依赖。不使用的话不需要这样做。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">reactive(this).attach(<span class="variable">$scope</span>);</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Angular去掉url的#</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- JS --&gt;</span></span><br><span class="line">$locationProvider.html5Mode(true);</span><br><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">base</span> <span class="attr">href</span>=<span class="string">"/"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>ui.router三个最重要的Provider</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$stateParams</span>.(:id)  //获取url里的参数</span><br><span class="line"><span class="variable">$urlRouterProvider</span>.otherwise('')   //重定向</span><br><span class="line"><span class="variable">$stateProvider</span>.<span class="keyword">state</span>  //设置<span class="keyword">state</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原来还可以这样跳转到其他state的，以前不知道可以直接传值。。</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ui-sref</span>=<span class="string">"partyDetails(&#123;partyId: party._id&#125;)"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>findOne会找到符合条件的第一个元素</p>
+</li>
+<li><p>update方法更新数据</p>
+<figure class="highlight roboconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Parties.update(&#123;<span class="attribute">_id</span>: $stateParams<span class="variable">.partyId</span>&#125;, &#123;</span><br><span class="line">            $set: &#123;</span><br><span class="line">              name: this<span class="variable">.party</span><span class="variable">.name</span>,</span><br><span class="line">              description: this<span class="variable">.party</span><span class="variable">.description</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下面的error出现原因是<code>parties</code>这个Collection重复定义了。</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: A <span class="function"><span class="keyword">method</span> <span class="title">named</span> '/<span class="title">parties</span>/<span class="title">insert</span>' <span class="title">is</span> <span class="title">already</span> <span class="title">defined</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Meteor.users</code>是<code>meteor-accounts</code>定义的Collection</p>
+</li>
+<li><p>返回所有查询到的数据但是只包括这两个字段</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">return</span> <span class="selector-tag">Meteor</span><span class="selector-class">.users</span><span class="selector-class">.find</span>(&#123;&#125;, &#123;<span class="attribute">fields</span>: &#123;emails: <span class="number">1</span>, profile: <span class="number">1</span>&#125;&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在哪个directive里subscribe了数据，就只能在这个di里访问到</p>
+</li>
+</ul>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/03/09/Open-Weather-App-using-React/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Open Weather App using React
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/01/20/Mac-编程环境配置以及其他/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Mac 编程环境配置以及其他
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="post-angular-meteor-学习笔记" data-title="Angular-Meteor 学习笔记" data-url="http://www.tangrui.win/blog/2016/03/07/angular-meteor-学习笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"troywith77"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0]
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+	<!-- 多说公共JS代码 end -->
+</section>
+
+    </div>
+    <footer id="footer">
+	<div class="footer-blog-title">
+		<p>&copy; 2018 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<p>Glad to meet you here!<br /></p>
+		<p>If you like the theme, go get it! <a href="https://github.com/troywith77/zenT">Install !</a></p>
+	</div>
+</footer>
+    
+
+<script src="/blog/js/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+  </div>
+</body>
+</html>

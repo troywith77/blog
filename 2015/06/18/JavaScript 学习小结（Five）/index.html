@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript 学习小结（Five） | Troy&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="JavaScript 对象所有事物都是对象JavaScript 提供多个内建对象，比如 String、Date、Array 等等。此外，JavaScript 允许自定义对象。 对象只是带有属性和方法的特殊数据类型。  布尔型可以是一个对象。 数字型可以是一个对象。 字符串也可以是一个对象 日期是一个对象 数学和正则表达式也是对象 数组是一个对象 甚至函数也可以是对象  访问对象的属性访问对象属性的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 学习小结（Five）">
+<meta property="og:url" content="http://www.tangrui.win/blog/2015/06/18/JavaScript 学习小结（Five）/index.html">
+<meta property="og:site_name" content="Troy&#39;s Blog">
+<meta property="og:description" content="JavaScript 对象所有事物都是对象JavaScript 提供多个内建对象，比如 String、Date、Array 等等。此外，JavaScript 允许自定义对象。 对象只是带有属性和方法的特殊数据类型。  布尔型可以是一个对象。 数字型可以是一个对象。 字符串也可以是一个对象 日期是一个对象 数学和正则表达式也是对象 数组是一个对象 甚至函数也可以是对象  访问对象的属性访问对象属性的">
+<meta property="og:locale" content="ZH-CN">
+<meta property="og:updated_time" content="2018-01-24T02:05:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 学习小结（Five）">
+<meta name="twitter:description" content="JavaScript 对象所有事物都是对象JavaScript 提供多个内建对象，比如 String、Date、Array 等等。此外，JavaScript 允许自定义对象。 对象只是带有属性和方法的特殊数据类型。  布尔型可以是一个对象。 数字型可以是一个对象。 字符串也可以是一个对象 日期是一个对象 数学和正则表达式也是对象 数组是一个对象 甚至函数也可以是对象  访问对象的属性访问对象属性的">
+  
+    <link rel="alternative" href="/atom.xml" title="Troy&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/favicon.ico">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body style="height: 100%">
+  <div id="bg">
+    <div id="bg-mask">
+      <h1>Troy's Blog</h1>
+      <p>思想，故事和灵感</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="http://tangrui.win">About</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
+    </ul>
+  </nav>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/blog/">Troy&#39;s Blog</a>
+	</h1>
+	<p class="cite-myself">思想，故事和灵感</p>
+</header>
+    <div id="main">
+      <article id="post-JavaScript 学习小结（Five）" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/06/18/JavaScript 学习小结（Five）/" class="article-date">
+  <time datetime="2015-06-18T03:14:15.000Z" itemprop="datePublished">06-18-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      JavaScript 学习小结（Five）
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h2 id="JavaScript-对象"><a href="#JavaScript-对象" class="headerlink" title="JavaScript 对象"></a>JavaScript 对象</h2><h3 id="所有事物都是对象"><a href="#所有事物都是对象" class="headerlink" title="所有事物都是对象"></a>所有事物都是对象</h3><p>JavaScript 提供多个内建对象，比如 String、Date、Array 等等。此外，JavaScript 允许自定义对象。 对象只是带有属性和方法的特殊数据类型。</p>
+<ul>
+<li>布尔型可以是一个对象。</li>
+<li>数字型可以是一个对象。</li>
+<li>字符串也可以是一个对象</li>
+<li>日期是一个对象</li>
+<li>数学和正则表达式也是对象</li>
+<li>数组是一个对象</li>
+<li>甚至函数也可以是对象</li>
+</ul>
+<h3 id="访问对象的属性"><a href="#访问对象的属性" class="headerlink" title="访问对象的属性"></a>访问对象的属性</h3><p>访问对象属性的语法是：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">objectName</span><span class="selector-class">.propertyName</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message=<span class="string">"Hello World!"</span>;</span><br><span class="line"><span class="keyword">var</span> x=message.length;      <span class="comment">//12</span></span><br><span class="line"><span class="comment">//使用了 String 对象的 length 属性来获取字符串的长度</span></span><br></pre></td></tr></table></figure>
+<h3 id="访问对象的方法"><a href="#访问对象的方法" class="headerlink" title="访问对象的方法"></a>访问对象的方法</h3><p>可以通过以下语法来调用方法：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">objectName</span><span class="selector-class">.methodName</span>()</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message=<span class="string">"Hello world!"</span>;</span><br><span class="line"><span class="keyword">var</span> x=message.toUpperCase();   <span class="comment">//HELLO WORLD!  </span></span><br><span class="line"><span class="comment">//使用了 String 对象的 toUpperCase() 方法将字符串转换成大写形式</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建-JavaScript-对象"><a href="#创建-JavaScript-对象" class="headerlink" title="创建 JavaScript 对象"></a>创建 JavaScript 对象</h3><p>创建新对象有两种不同的方法：</p>
+<ul>
+<li>定义并创建对象的实例</li>
+<li>使用函数来定义对象，然后创建新的对象实例</li>
+</ul>
+<a id="more"></a>
+<h4 id="创建直接的实例"><a href="#创建直接的实例" class="headerlink" title="创建直接的实例"></a>创建直接的实例</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">person</span>=new Object();</span><br><span class="line">person.<span class="attribute">firstname</span>=<span class="string">"Rui"</span>;</span><br><span class="line">person.<span class="attribute">lastname</span>=<span class="string">"Tang"</span>;</span><br><span class="line">person.<span class="attribute">age</span>=20;</span><br><span class="line">person.<span class="attribute">eyecolor</span>=<span class="string">"black"</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//或者：!!!直接声明，不需要var或者new之类的关键字</span></span><br><span class="line">person=&#123;<span class="string">firstname:</span><span class="string">"Rui"</span>,</span><br><span class="line"><span class="string">lastname:</span><span class="string">"Tang"</span>,</span><br><span class="line"><span class="string">age:</span><span class="number">20</span>,</span><br><span class="line"><span class="string">eyecolor:</span><span class="string">"black"</span>&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="使用对象构造器"><a href="#使用对象构造器" class="headerlink" title="使用对象构造器"></a>使用对象构造器</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function person(firstname,lastname,age,eyecolor)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">this</span>.firstname=firstname;</span><br><span class="line"><span class="keyword">this</span>.lastname=lastname;</span><br><span class="line"><span class="keyword">this</span>.age=age;</span><br><span class="line"><span class="keyword">this</span>.eyecolor=eyecolor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在JavaScript中，this通常指向的是我们正在执行的函数本身，或者是指向该函数所属的对象（运行时）</p>
+<h3 id="创建-JavaScript-对象实例"><a href="#创建-JavaScript-对象实例" class="headerlink" title="创建 JavaScript 对象实例"></a>创建 JavaScript 对象实例</h3><p>一旦有了对象构造器，就可以创建新的对象实例，就像这样：</p>
+<p>!!!一定要创建新的实例才可以，不能直接person(“Rui”,”Tang”,20),这样是没用的!!!</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> me = <span class="keyword">new</span> <span class="type">person</span>(<span class="string">"Rui"</span>,<span class="string">"Tang"</span>,<span class="number">20</span>);</span><br><span class="line"><span class="keyword">var</span> myFather=<span class="keyword">new</span> <span class="type">person</span>(<span class="string">"John"</span>,<span class="string">"Doe"</span>,<span class="number">50</span>,<span class="string">"blue"</span>);</span><br><span class="line"><span class="keyword">var</span> myMother=<span class="keyword">new</span> <span class="type">person</span>(<span class="string">"Sally"</span>,<span class="string">"Rally"</span>,<span class="number">48</span>,<span class="string">"green"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="把属性添加到-JavaScript-对象"><a href="#把属性添加到-JavaScript-对象" class="headerlink" title="把属性添加到 JavaScript 对象"></a>把属性添加到 JavaScript 对象</h3><p>可以通过为对象赋值，向已有对象添加新属性：</p>
+<p>假设 person 对象已存在 - 可以为其添加这些新属性：firstname、lastname、age 以及 eyecolor：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">person.firstname=<span class="string">"John"</span><span class="comment">;</span></span><br><span class="line">person.lastname=<span class="string">"Doe"</span><span class="comment">;</span></span><br><span class="line">person.age=<span class="number">30</span><span class="comment">;</span></span><br><span class="line">person.eyecolor=<span class="string">"blue"</span><span class="comment">;</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">x</span>=person.firstname<span class="comment">;    //John</span></span><br></pre></td></tr></table></figure>
+<h3 id="把方法添加到-JavaScript-对象"><a href="#把方法添加到-JavaScript-对象" class="headerlink" title="把方法添加到 JavaScript 对象"></a>把方法添加到 JavaScript 对象</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span><span class="params">(firstname,lastname,age,eyecolor)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">this</span>.firstname=firstname;</span><br><span class="line"><span class="keyword">this</span>.lastname=lastname;</span><br><span class="line"><span class="keyword">this</span>.age=age;</span><br><span class="line"><span class="keyword">this</span>.eyecolor=eyecolor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.changeName=<span class="function"><span class="keyword">function</span> <span class="params">(name)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">this</span>.lastname=name;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="JavaScript-类"><a href="#JavaScript-类" class="headerlink" title="JavaScript 类"></a>JavaScript 类</h3><p>JavaScript 是面向对象的语言，但 JavaScript 不使用类。</p>
+<p>在 JavaScript 中，不会创建类，也不会通过类来创建对象（就像在其他面向对象的语言中那样）。</p>
+<p>JavaScript 基于 prototype，而不是基于类的。</p>
+<h3 id="JavaScript-for…in-循环"><a href="#JavaScript-for…in-循环" class="headerlink" title="JavaScript for…in 循环"></a>JavaScript for…in 循环</h3><p>JavaScript for…in 语句循环遍历对象的属性。 for…in 循环中的代码块将针对每个属性执行一次。</p>
+<p>语法：</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">variable</span> <span class="keyword">in</span> <span class="keyword">object</span>)</span><br><span class="line">  &#123;</span><br><span class="line">  code to be executed</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>循环遍历对象的属性：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var person=&#123;<span class="string">fname:</span><span class="string">"John"</span>,<span class="string">lname:</span><span class="string">"Doe"</span>,<span class="string">age:</span><span class="number">25</span>&#125;; </span><br><span class="line">var x,txt = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (x <span class="keyword">in</span> person)</span><br><span class="line">  &#123;</span><br><span class="line">  txt=txt + person[x];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/06/20/JavaScript 学习小结（Six）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript 学习小结（Six）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/06/10/JavaScript 学习小结（四）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          JavaScript 学习小结（Four）
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="post-JavaScript 学习小结（Five）" data-title="JavaScript 学习小结（Five）" data-url="http://www.tangrui.win/blog/2015/06/18/JavaScript 学习小结（Five）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"troywith77"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0]
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+	<!-- 多说公共JS代码 end -->
+</section>
+
+    </div>
+    <footer id="footer">
+	<div class="footer-blog-title">
+		<p>&copy; 2018 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<p>Glad to meet you here!<br /></p>
+		<p>If you like the theme, go get it! <a href="https://github.com/troywith77/zenT">Install !</a></p>
+	</div>
+</footer>
+    
+
+<script src="/blog/js/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Troy&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="属于 Troy 的写字的地方 | Troy&apos;s Blog | blog | 前端 | Front-end">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Troy&#39;s Blog">
+<meta property="og:url" content="http://www.tangrui.win/blog/index.html">
+<meta property="og:site_name" content="Troy&#39;s Blog">
+<meta property="og:description" content="属于 Troy 的写字的地方 | Troy&apos;s Blog | blog | 前端 | Front-end">
+<meta property="og:locale" content="ZH-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Troy&#39;s Blog">
+<meta name="twitter:description" content="属于 Troy 的写字的地方 | Troy&apos;s Blog | blog | 前端 | Front-end">
+  
+    <link rel="alternative" href="/atom.xml" title="Troy&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/favicon.ico">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body style="height: 100%">
+  <div id="bg">
+    <div id="bg-mask">
+      <h1>Troy's Blog</h1>
+      <p>思想，故事和灵感</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="http://tangrui.win">About</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
+    </ul>
+  </nav>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/blog/">Troy&#39;s Blog</a>
+	</h1>
+	<p class="cite-myself">思想，故事和灵感</p>
+</header>
+    <div id="main">
+      
+  
+    <article id="post-获取-JavaScript-中的嵌套对象属性" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2018/03/15/获取-JavaScript-中的嵌套对象属性/" class="article-date">
+  <time datetime="2018-03-14T22:52:24.000Z" itemprop="datePublished">03-15-2018</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2018/03/15/获取-JavaScript-中的嵌套对象属性/">获取 JavaScript 中的嵌套对象属性</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+			<p>JavaScript 是个很棒的语言，但是我们经常会碰到一些奇怪的场景让人想挠破头，其中一个就是获取嵌套对象的属性时可能会面对的错误。</p>
+<h2 id="Cannot-read-property-‘foo’-of-undefined"><a href="#Cannot-read-property-‘foo’-of-undefined" class="headerlink" title="Cannot read property ‘foo’ of undefined"></a>Cannot read property ‘foo’ of undefined</h2><p>在使用 JavaScript 的时候，我们经常会需要到获取深层嵌套对象的里层元素，比如下面的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line">  id: <span class="number">77</span>,</span><br><span class="line">  email: <span class="string">'ruitang307@gmail.com'</span>,</span><br><span class="line">  info: &#123;</span><br><span class="line">    name: <span class="string">'troy'</span>,</span><br><span class="line">    age: <span class="number">23</span>,</span><br><span class="line">    address: &#123;</span><br><span class="line">      city: <span class="string">'ShangHai'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>为了获取用户的 <code>name</code> 或者 <code>city</code> ，我们会写到</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> userName = user.info.name;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> userCity = user.info.address.city;</span><br></pre></td></tr></table></figure>
+<p>这看起来很简单也很直观。</p>
+<p>但是有时候用户的 <code>info</code> 可能不存在，比如：</p>
+			
+				<p class="article-more-link">
+					<a href="/blog/2018/03/15/获取-JavaScript-中的嵌套对象属性/#more">Read More</a>
+				</p>
+      
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+  
+    <article id="post-2018" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2018/01/24/2018/" class="article-date">
+  <time datetime="2018-01-24T01:41:17.000Z" itemprop="datePublished">01-24-2018</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2018/01/24/2018/">2018</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h1 id="Funny"><a href="#Funny" class="headerlink" title="Funny"></a>Funny</h1><p>I’m back.</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+  
+    <article id="post-Open-Weather-App-using-React" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2016/03/09/Open-Weather-App-using-React/" class="article-date">
+  <time datetime="2016-03-09T10:04:46.000Z" itemprop="datePublished">03-09-2016</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2016/03/09/Open-Weather-App-using-React/">Open Weather App using React</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+			<p>这是一个利用 Open Weather 的 <a href="http://openweathermap.org/api" target="_blank" rel="noopener">API</a> 使用 React 写的一个天气查询App。<a href="https://github.com/troywith77/react-weather" target="_blank" rel="noopener">Github Repo</a></p>
+<p>虽然挺简单的，但是做教程写的话，感觉也得分好几篇了。。（好像还没到可以写教程的水平(•̀ロ•́)و✧ ~~ 就尽量记录清楚一点吧~）</p>
+<p>PS: 写这个React app的时候一会用ES5，一会用ES6也是醉了 | ｀Д´|</p>
+			
+				<p class="article-more-link">
+					<a href="/blog/2016/03/09/Open-Weather-App-using-React/#more">Read More</a>
+				</p>
+      
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+  
+    <article id="post-angular-meteor-学习笔记" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2016/03/07/angular-meteor-学习笔记/" class="article-date">
+  <time datetime="2016-03-07T05:19:08.000Z" itemprop="datePublished">03-07-2016</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2016/03/07/angular-meteor-学习笔记/">Angular-Meteor 学习笔记</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+			<p>之前实习的公司官网使用Meteor开发的，用了三个月，感觉Meteor真的是可以很方便很快速的进行开发。正好现在有时间，把Angular和Meteor结合起来学习一下，记下一些心得吧~</p>
+<ul>
+<li>Meteor服务器开启时会扫描所有的HTML文件，然后把其中所有的<code>&lt;html&gt;</code>、<code>&lt;head&gt;</code>、<code>&lt;body&gt;</code>标签里的内容融合在一起。</li>
+<li><code>helper</code>是reactiv的，函数内的数据一旦改变，函数就会重新运行一次。</li>
+<li>Meteor.startup函数可以在Meteor启动时执行内部的函数。</li>
+<li><code>collection_name.find({}).fetch()</code>, <code>collection_name.insert()</code>, <code>db.parties.remove( {&quot;_id&quot;: &quot;N4KzMEvtm4dYvk2TF&quot;});</code></li>
+<li><p>JS里访问Collection是从<code>Parties</code>变量访问， Mongo Shell 里从<code>db.parties</code>访问。</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Parties</span> = new Mongo.Collection(<span class="string">'parties'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 Controoler as 语法，先将 $scope 改为 this， 然后引入 $reactive 依赖。不使用的话不需要这样做。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">reactive(this).attach(<span class="variable">$scope</span>);</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Angular去掉url的#</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- JS --&gt;</span></span><br><span class="line">$locationProvider.html5Mode(true);</span><br><span class="line"><span class="comment">&lt;!-- HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">base</span> <span class="attr">href</span>=<span class="string">"/"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+			
+				<p class="article-more-link">
+					<a href="/blog/2016/03/07/angular-meteor-学习笔记/#more">Read More</a>
+				</p>
+      
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+  
+    <article id="post-Mac-编程环境配置以及其他" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2016/01/20/Mac-编程环境配置以及其他/" class="article-date">
+  <time datetime="2016-01-20T12:18:45.000Z" itemprop="datePublished">01-20-2016</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2016/01/20/Mac-编程环境配置以及其他/">Mac 编程环境配置以及其他</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>之前换了一个新的固态硬盘，准备不备份原来的系统使用了，所以得重新配置一下自己编程的环境（系统以及工具的）。所以写一篇博客来总结一下需要做的工作。</p>
+<p>占坑</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/5/">5</a><a class="extend next" rel="next" href="/blog/page/2/">Next &raquo;</a>
+    </nav>
+  
+
+    </div>
+    <footer id="footer">
+	<div class="footer-blog-title">
+		<p>&copy; 2018 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<p>Glad to meet you here!<br /></p>
+		<p>If you like the theme, go get it! <a href="https://github.com/troywith77/zenT">Install !</a></p>
+	</div>
+</footer>
+    
+
+<script src="/blog/js/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+  </div>
+</body>
+</html>

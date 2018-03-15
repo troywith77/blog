@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript 学习小结（Four） | Troy&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="HTML DOM改变 HTML 内容1document.getElementById(id).innerHTML=new HTML 改变 HTML 属性12345//HTML DOM方法是document.getElementById(id).attribute=new value//DOM方法是document.getElementById(id);setAttribute(attribute,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 学习小结（Four）">
+<meta property="og:url" content="http://www.tangrui.win/blog/2015/06/10/JavaScript 学习小结（四）/index.html">
+<meta property="og:site_name" content="Troy&#39;s Blog">
+<meta property="og:description" content="HTML DOM改变 HTML 内容1document.getElementById(id).innerHTML=new HTML 改变 HTML 属性12345//HTML DOM方法是document.getElementById(id).attribute=new value//DOM方法是document.getElementById(id);setAttribute(attribute,">
+<meta property="og:locale" content="ZH-CN">
+<meta property="og:updated_time" content="2018-01-24T02:05:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 学习小结（Four）">
+<meta name="twitter:description" content="HTML DOM改变 HTML 内容1document.getElementById(id).innerHTML=new HTML 改变 HTML 属性12345//HTML DOM方法是document.getElementById(id).attribute=new value//DOM方法是document.getElementById(id);setAttribute(attribute,">
+  
+    <link rel="alternative" href="/atom.xml" title="Troy&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/favicon.ico">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body style="height: 100%">
+  <div id="bg">
+    <div id="bg-mask">
+      <h1>Troy's Blog</h1>
+      <p>思想，故事和灵感</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="http://tangrui.win">About</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
+    </ul>
+  </nav>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/blog/">Troy&#39;s Blog</a>
+	</h1>
+	<p class="cite-myself">思想，故事和灵感</p>
+</header>
+    <div id="main">
+      <article id="post-JavaScript 学习小结（四）" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/06/10/JavaScript 学习小结（四）/" class="article-date">
+  <time datetime="2015-06-10T04:20:40.000Z" itemprop="datePublished">06-10-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      JavaScript 学习小结（Four）
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h1 id="HTML-DOM"><a href="#HTML-DOM" class="headerlink" title="HTML DOM"></a>HTML DOM</h1><h2 id="改变-HTML-内容"><a href="#改变-HTML-内容" class="headerlink" title="改变 HTML 内容"></a>改变 HTML 内容</h2><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(id).innerHTML=<span class="keyword">new</span> HTML</span><br></pre></td></tr></table></figure>
+<h2 id="改变-HTML-属性"><a href="#改变-HTML-属性" class="headerlink" title="改变 HTML 属性"></a>改变 HTML 属性</h2><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//HTML DOM方法是</span></span><br><span class="line">document.getElementById(id).attribute=<span class="keyword">new</span> <span class="keyword">value</span></span><br><span class="line"><span class="comment">//DOM方法是</span></span><br><span class="line">document.getElementById(id);</span><br><span class="line">setAttribute(attribute, <span class="keyword">value</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="改变-HTML-样式"><a href="#改变-HTML-样式" class="headerlink" title="改变 HTML 样式"></a>改变 HTML 样式</h2><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById(id).<span class="built_in">style</span>.property=<span class="built_in">new</span> <span class="built_in">style</span></span><br></pre></td></tr></table></figure>
+<h2 id="对事件做出反应"><a href="#对事件做出反应" class="headerlink" title="对事件做出反应"></a>对事件做出反应</h2><h3 id="onclick事件"><a href="#onclick事件" class="headerlink" title="onclick事件"></a>onclick事件</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">onclick = JavaScript     <span class="comment">//添加事件</span></span><br><span class="line"></span><br><span class="line">&lt;button onclick=<span class="string">"displayDate()"</span>&gt;<span class="keyword">Try</span> it&lt;/button&gt;       <span class="comment">//直接在标签内分配事件</span></span><br><span class="line"></span><br><span class="line">document.getElementById(<span class="string">"myBtn"</span>).onclick=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;displayDate()&#125;;     <span class="comment">//使用DOM来分配事件</span></span><br></pre></td></tr></table></figure>
+<h3 id="onload-和-onunload-事件"><a href="#onload-和-onunload-事件" class="headerlink" title="onload 和 onunload 事件"></a>onload 和 onunload 事件</h3><p>onload 和 onunload 事件会在用户进入或离开页面时被触发。</p>
+<p>onload 事件可用于检测访问者的浏览器类型和浏览器版本，并基于这些信息来加载网页的正确版本。</p>
+<p>onload 和 onunload 事件可用于处理 cookie。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">body</span> onload=<span class="string">"checkCookies()"</span>&gt;      <span class="comment">//弹窗-提示浏览器cookie是否可用。</span></span><br></pre></td></tr></table></figure>
+<h3 id="onchange-事件"><a href="#onchange-事件" class="headerlink" title="onchange 事件"></a>onchange 事件</h3><p>onchange 事件常结合对输入字段的验证来使用。</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"text"</span> id=<span class="string">"fname"</span> onchange=<span class="string">"upperCase()"</span>&gt;     </span><br><span class="line"><span class="comment">//当用户改变输入字段的内容时，会调用 upperCase() 函数</span></span><br></pre></td></tr></table></figure>
+<h3 id="onmouseover-和-onmouseout-事件"><a href="#onmouseover-和-onmouseout-事件" class="headerlink" title="onmouseover 和 onmouseout 事件"></a>onmouseover 和 onmouseout 事件</h3><p>onmouseover 和 onmouseout 事件可用于在用户的鼠标移至 HTML 元素上方或移出元素时触发函数。</p>
+<h3 id="onmousedown、onmouseup-以及-onclick-事件"><a href="#onmousedown、onmouseup-以及-onclick-事件" class="headerlink" title="onmousedown、onmouseup 以及 onclick 事件"></a>onmousedown、onmouseup 以及 onclick 事件</h3><p>onmousedown, onmouseup 以及 onclick 构成了鼠标点击事件的所有部分。首先当点击鼠标按钮时，会触发 onmousedown 事件，当释放鼠标按钮时，会触发 onmouseup 事件，最后，当完成鼠标点击时，会触发 onclick 事件。</p>
+<a id="more"></a>
+<h2 id="HTML-DOM-EventListener"><a href="#HTML-DOM-EventListener" class="headerlink" title="HTML DOM EventListener"></a>HTML DOM EventListener</h2><p>addEventListener() 方法用于向指定元素添加事件句柄。addEventListener() 方法添加的事件句柄不会覆盖已存在的事件句柄。</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">element</span>.addEventListener(event, <span class="function"><span class="keyword">function</span>, <span class="title">useCapture</span>);</span></span><br></pre></td></tr></table></figure>
+<p>第一个参数是事件的类型 (如 “click” 或 “mousedown”).</p>
+<p>第二个参数是事件触发后调用的函数。</p>
+<p>第三个参数是个布尔值用于描述事件是冒泡还是捕获。该参数是可选的。</p>
+<h3 id="向原元素添加事件句柄"><a href="#向原元素添加事件句柄" class="headerlink" title="向原元素添加事件句柄"></a>向原元素添加事件句柄</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123; alert(<span class="string">"Hello World!"</span>); &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="向同一个元素中添加多个事件句柄"><a href="#向同一个元素中添加多个事件句柄" class="headerlink" title="向同一个元素中添加多个事件句柄"></a>向同一个元素中添加多个事件句柄</h3><p>addEventListener() 方法允许向同个元素添加多个事件，且不会覆盖已存在的事件：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">element</span><span class="selector-class">.addEventListener</span>(<span class="string">"click"</span>, myFunction);</span><br><span class="line"><span class="selector-tag">element</span><span class="selector-class">.addEventListener</span>(<span class="string">"click"</span>, mySecondFunction);</span><br></pre></td></tr></table></figure></p>
+<p>可以向同个元素添加不同类型的事件：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">element</span><span class="selector-class">.addEventListener</span>(<span class="string">"mouseover"</span>, myFunction);</span><br><span class="line"><span class="selector-tag">element</span><span class="selector-class">.addEventListener</span>(<span class="string">"click"</span>, mySecondFunction);</span><br><span class="line"><span class="selector-tag">element</span><span class="selector-class">.addEventListener</span>(<span class="string">"mouseout"</span>, myThirdFunction);</span><br></pre></td></tr></table></figure>
+<h3 id="向-Window-对象添加事件句柄"><a href="#向-Window-对象添加事件句柄" class="headerlink" title="向 Window 对象添加事件句柄"></a>向 Window 对象添加事件句柄</h3><p>当用户重置窗口大小时添加事件监听：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"resize"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML = sometext;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h3><p>当传递参数值时，使用”匿名函数”调用带参数的函数：</p>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span>&#123; <span class="title">myFunction</span><span class="params">(p1, p2)</span>; &#125;);</span></span><br></pre></td></tr></table></figure>
+<h3 id="事件冒泡与事件捕获"><a href="#事件冒泡与事件捕获" class="headerlink" title="事件冒泡与事件捕获"></a>事件冒泡与事件捕获</h3><p>事件传递有两种方式：冒泡与捕获。</p>
+<p>事件传递定义了元素事件触发的顺序。 如果你将 &lt; p &gt; 元素插入到 &lt; div &gt; 元素中，用户点击 &lt; p &gt; 元素, 哪个元素的 “click” 事件先被触发呢？</p>
+<p>在 冒泡 中，内部元素的事件会先被触发，然后再触发外部元素，即： &lt; p &gt; 元素的点击事件先触发，然后会触发 &lt; div &gt; 元素的点击事件。</p>
+<p>在 捕获 中，外部元素的事件会先被触发，然后才会触发内部元素的事件，即： &lt; div &gt; 元素的点击事件先触发 ，然后再触发 &lt; p &gt; 元素的点击事件。</p>
+<p>addEventListener() 方法可以指定 “useCapture” 参数来设置传递类型：</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addEventListener(<span class="keyword">event</span>, <span class="function"><span class="keyword">function</span>, <span class="title">useCapture</span>);</span></span><br></pre></td></tr></table></figure>
+<p>默认值为 false, 即冒泡传递，当值为 true 时, 事件使用捕获传递。</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"myDiv"</span>).addEventListener(<span class="string">"click"</span>, myFunction, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+<p>内部外部的元素需要同时设置监听</p>
+<h3 id="removeEventListener-方法"><a href="#removeEventListener-方法" class="headerlink" title="removeEventListener() 方法"></a>removeEventListener() 方法</h3><p>removeEventListener() 方法移除由 addEventListener() 方法添加的事件句柄:</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">element</span><span class="selector-class">.removeEventListener</span>(<span class="string">"mousemove"</span>, myFunction);</span><br></pre></td></tr></table></figure>
+<h2 id="HTML-DOM-元素的操作"><a href="#HTML-DOM-元素的操作" class="headerlink" title="HTML DOM 元素的操作"></a>HTML DOM 元素的操作</h2><h3 id="添加-HTML-元素"><a href="#添加-HTML-元素" class="headerlink" title="添加 HTML 元素"></a>添加 HTML 元素</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p1"</span>&gt;</span>This is a paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p2"</span>&gt;</span>This is another paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> para=<span class="built_in">document</span>.createElement(<span class="string">"p"</span>);      <span class="comment">//创建一个p元素</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> node=<span class="built_in">document</span>.createTextNode(<span class="string">"This is new."</span>);        <span class="comment">//创建一个新的文本节点</span></span></span><br><span class="line"><span class="actionscript">para.appendChild(node);         <span class="comment">//将这个节点追加到p元素上</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> element=<span class="built_in">document</span>.getElementById(<span class="string">"p1"</span>);       <span class="comment">//获取id为p1的元素</span></span></span><br><span class="line"><span class="actionscript">element.appendChild(para);          <span class="comment">//将创建的p元素追加到id为p1的元素之后</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="删除已有的-HTML-元素"><a href="#删除已有的-HTML-元素" class="headerlink" title="删除已有的 HTML 元素"></a>删除已有的 HTML 元素</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p1"</span>&gt;</span>This is a paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p2"</span>&gt;</span>This is another paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> parent=<span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>);     <span class="comment">//获取div1</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> child=<span class="built_in">document</span>.getElementById(<span class="string">"p1"</span>);        <span class="comment">//获取p1</span></span></span><br><span class="line"><span class="actionscript">parent.removeChild(child);                      <span class="comment">//将子节点p1从div1中移除</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果要不知道父元素的情况下删除节点，常用的方法是这样的：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">child</span><span class="selector-class">.parentNode</span><span class="selector-class">.removeChild</span>(<span class="selector-tag">child</span>);</span><br></pre></td></tr></table></figure>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/06/18/JavaScript 学习小结（Five）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript 学习小结（Five）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/06/07/JavaScript 学习小结（三）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          JavaScript 学习小结（Three）
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="post-JavaScript 学习小结（四）" data-title="JavaScript 学习小结（Four）" data-url="http://www.tangrui.win/blog/2015/06/10/JavaScript 学习小结（四）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"troywith77"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0]
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+	<!-- 多说公共JS代码 end -->
+</section>
+
+    </div>
+    <footer id="footer">
+	<div class="footer-blog-title">
+		<p>&copy; 2018 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<p>Glad to meet you here!<br /></p>
+		<p>If you like the theme, go get it! <a href="https://github.com/troywith77/zenT">Install !</a></p>
+	</div>
+</footer>
+    
+
+<script src="/blog/js/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+  </div>
+</body>
+</html>

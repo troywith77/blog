@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript DOM 编程艺术 第七章 动态创建标记 | Troy&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="一些传统方法 ####document.write ####innerHTML  DOM 方法 createElement方法：创建一个元素节点  12document.createElement(nodeName)document.createElement(&quot;p&quot;);  appendChild方法：将节点插入另一个节点内  1234parent.appendChild(child)var pa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript DOM 编程艺术 第七章 动态创建标记">
+<meta property="og:url" content="http://www.tangrui.win/blog/2015/04/01/JavaScript-DOM-编程艺术-第七章/index.html">
+<meta property="og:site_name" content="Troy&#39;s Blog">
+<meta property="og:description" content="一些传统方法 ####document.write ####innerHTML  DOM 方法 createElement方法：创建一个元素节点  12document.createElement(nodeName)document.createElement(&quot;p&quot;);  appendChild方法：将节点插入另一个节点内  1234parent.appendChild(child)var pa">
+<meta property="og:locale" content="ZH-CN">
+<meta property="og:updated_time" content="2018-01-24T02:05:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript DOM 编程艺术 第七章 动态创建标记">
+<meta name="twitter:description" content="一些传统方法 ####document.write ####innerHTML  DOM 方法 createElement方法：创建一个元素节点  12document.createElement(nodeName)document.createElement(&quot;p&quot;);  appendChild方法：将节点插入另一个节点内  1234parent.appendChild(child)var pa">
+  
+    <link rel="alternative" href="/atom.xml" title="Troy&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/favicon.ico">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body style="height: 100%">
+  <div id="bg">
+    <div id="bg-mask">
+      <h1>Troy's Blog</h1>
+      <p>思想，故事和灵感</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="http://tangrui.win">About</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
+    </ul>
+  </nav>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/blog/">Troy&#39;s Blog</a>
+	</h1>
+	<p class="cite-myself">思想，故事和灵感</p>
+</header>
+    <div id="main">
+      <article id="post-JavaScript-DOM-编程艺术-第七章" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/04/01/JavaScript-DOM-编程艺术-第七章/" class="article-date">
+  <time datetime="2015-04-01T12:11:57.000Z" itemprop="datePublished">04-01-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      JavaScript DOM 编程艺术 第七章 动态创建标记
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h3 id="一些传统方法"><a href="#一些传统方法" class="headerlink" title="一些传统方法"></a>一些传统方法</h3><ul>
+<li>####document.write</li>
+<li>####innerHTML</li>
+</ul>
+<h3 id="DOM-方法"><a href="#DOM-方法" class="headerlink" title="DOM 方法"></a>DOM 方法</h3><ul>
+<li>createElement方法：创建一个元素节点</li>
+</ul>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.createElement(nodeName)</span><br><span class="line"><span class="built_in">document</span>.createElement(<span class="string">"p"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>appendChild方法：将节点插入另一个节点内</li>
+</ul>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parent</span>.appendChild(child)</span><br><span class="line"><span class="keyword">var</span> para = <span class="built_in">document</span>.createElement(<span class="string">"p"</span>);</span><br><span class="line"><span class="keyword">var</span> testdiv = <span class="built_in">document</span>.getElementById(<span class="string">"testdiv"</span>);</span><br><span class="line">testdiv.appendChild(para);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>createTextNode：创建一个文本节点</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.createTextNode(text)</span><br><span class="line"><span class="keyword">var</span> txt = <span class="built_in">document</span>.createTextNode(<span class="string">"Hello World"</span>);</span><br><span class="line">para.appendChild(txt);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This is <span class="tag">&lt;<span class="name">em</span>&gt;</span>my<span class="tag">&lt;/<span class="name">em</span>&gt;</span> content.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>要创建这样的HTML内容，需要：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> para = <span class="built_in">document</span>.createElement(<span class="string">"p"</span>);</span><br><span class="line">    <span class="keyword">var</span> txt1 = <span class="built_in">document</span>.createTextNode(<span class="string">"This is "</span>);</span><br><span class="line">    <span class="keyword">var</span> emphasis = <span class="built_in">document</span>.createElement(<span class="string">"em"</span>);</span><br><span class="line">    <span class="keyword">var</span> txt2 = <span class="built_in">document</span>.createTextNode(<span class="string">"my"</span>);</span><br><span class="line">    <span class="keyword">var</span> txt3 = <span class="built_in">document</span>.createTextNode(<span class="string">" content."</span>);</span><br><span class="line">    para.appendChild(txt1);</span><br><span class="line">    emphasis.appendChild(txt2);</span><br><span class="line">    para.appendChild(emphasis);</span><br><span class="line">    para.appendChild(txt3);</span><br><span class="line">    <span class="keyword">var</span> testdiv ＝ <span class="built_in">document</span>.getElementById(<span class="string">"testdiv"</span>);</span><br><span class="line">    testdiv.appendChild(para);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="在已有元素前插入一个新元素"><a href="#在已有元素前插入一个新元素" class="headerlink" title="在已有元素前插入一个新元素"></a>在已有元素前插入一个新元素</h4><p>DOM 提供了名为 insertBefore()的方法，这个方法把一个新元素插入到一个现有元素的前面。调用此方法，需要传入：</p>
+<ol>
+<li>新元素：你想插入的元素(newElement)</li>
+<li>目标元素：你想把这个新元素插入到哪个元素(targetElement)之前</li>
+<li>父元素：目标元素的父元素(parentElement)</li>
+</ol>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parentElement.insertBefore(<span class="keyword">new</span><span class="type">Element</span>, targetElement)</span><br></pre></td></tr></table></figure>
+<p>我们不必知道父元素到底是哪个，因为targetElement 的parentNode 属性值就是它。在DOM里，元素节点的父元素必须是另一个元素节点(属性节点和文本节点的子元素不允许是元素节点)。</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var gallery = document.getElementById(<span class="string">"imagegallery"</span>)<span class="comment">;</span></span><br><span class="line">gallery.parentNode.<span class="keyword">insertBefore(placeholder, </span>gallery)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h4 id="在已有元素后面插入一个新元素"><a href="#在已有元素后面插入一个新元素" class="headerlink" title="在已有元素后面插入一个新元素"></a>在已有元素后面插入一个新元素</h4><p>DOM没有提供这样的方法，但是我们可以自己编写这样一个insertAfter函数：</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span></span>(<span class="keyword">new</span><span class="type">Element</span>, targetElement)&#123;</span><br><span class="line">    <span class="keyword">var</span> parent = targetElement.parentNode;</span><br><span class="line">    <span class="keyword">if</span> (targetElement == parent.lastChild)&#123;</span><br><span class="line">        parent.appendChild(<span class="keyword">new</span><span class="type">Element</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果目标元素是父元素的最后一个子元素</span></span><br><span class="line">    <span class="comment">//就直接把新元素添加给父元素</span></span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        parent.insertBefore(<span class="keyword">new</span><span class="type">Element</span>, targetElement.nextSibling);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果不是，就将新元素插入到目标元素的下一个兄弟元素之前</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h3><h4 id="XMLHttpRequest对象"><a href="#XMLHttpRequest对象" class="headerlink" title="XMLHttpRequest对象"></a>XMLHttpRequest对象</h4><p>这个对象充当着浏览器中的脚本(客户端)与服务器之间的中间人的角色。以往的请求都由浏览器发出，而 JavaScript 通过这个对象可以自己发送请求，同时也自己处理响应。<br>(暂时没看懂。。。以后再单独看Ajax的书籍吧)</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/05/24/JavaScript 学习小结（一）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript 学习小结（One）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/03/26/JavaScript-DOM-编程艺术-第六章/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          JavaScript DOM 编程艺术 第六章
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="post-JavaScript-DOM-编程艺术-第七章" data-title="JavaScript DOM 编程艺术 第七章 动态创建标记" data-url="http://www.tangrui.win/blog/2015/04/01/JavaScript-DOM-编程艺术-第七章/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"troywith77"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0]
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+	<!-- 多说公共JS代码 end -->
+</section>
+
+    </div>
+    <footer id="footer">
+	<div class="footer-blog-title">
+		<p>&copy; 2018 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<p>Glad to meet you here!<br /></p>
+		<p>If you like the theme, go get it! <a href="https://github.com/troywith77/zenT">Install !</a></p>
+	</div>
+</footer>
+    
+
+<script src="/blog/js/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+  </div>
+</body>
+</html>

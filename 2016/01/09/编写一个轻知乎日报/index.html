@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  
+  <title>编写一个轻知乎日报 | Troy&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="昨天在github上看到了一个第三方的知乎日报客户端，作者本人表示采用非正常手段获取了知乎的API（斜眼），我也装作不知道的借用一下，自己学习开发使用，不会传播。这篇博客记录下此次的编写过程。 API主要分成四大块，分别是  最新的新闻 详细内容 主题日报 评论   启动界面的图片也可以通过API获取到链接，但是由于是Web端所以就不适用启动界面了。  自己这次开发是使用的Meteor，之前做过几">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编写一个轻知乎日报">
+<meta property="og:url" content="http://www.tangrui.win/blog/2016/01/09/编写一个轻知乎日报/index.html">
+<meta property="og:site_name" content="Troy&#39;s Blog">
+<meta property="og:description" content="昨天在github上看到了一个第三方的知乎日报客户端，作者本人表示采用非正常手段获取了知乎的API（斜眼），我也装作不知道的借用一下，自己学习开发使用，不会传播。这篇博客记录下此次的编写过程。 API主要分成四大块，分别是  最新的新闻 详细内容 主题日报 评论   启动界面的图片也可以通过API获取到链接，但是由于是Web端所以就不适用启动界面了。  自己这次开发是使用的Meteor，之前做过几">
+<meta property="og:locale" content="ZH-CN">
+<meta property="og:updated_time" content="2018-01-24T02:05:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="编写一个轻知乎日报">
+<meta name="twitter:description" content="昨天在github上看到了一个第三方的知乎日报客户端，作者本人表示采用非正常手段获取了知乎的API（斜眼），我也装作不知道的借用一下，自己学习开发使用，不会传播。这篇博客记录下此次的编写过程。 API主要分成四大块，分别是  最新的新闻 详细内容 主题日报 评论   启动界面的图片也可以通过API获取到链接，但是由于是Web端所以就不适用启动界面了。  自己这次开发是使用的Meteor，之前做过几">
+  
+    <link rel="alternative" href="/atom.xml" title="Troy&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/favicon.ico">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body style="height: 100%">
+  <div id="bg">
+    <div id="bg-mask">
+      <h1>Troy's Blog</h1>
+      <p>思想，故事和灵感</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="http://tangrui.win">About</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
+    </ul>
+  </nav>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/blog/">Troy&#39;s Blog</a>
+	</h1>
+	<p class="cite-myself">思想，故事和灵感</p>
+</header>
+    <div id="main">
+      <article id="post-编写一个轻知乎日报" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2016/01/09/编写一个轻知乎日报/" class="article-date">
+  <time datetime="2016-01-09T14:20:52.000Z" itemprop="datePublished">01-09-2016</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      编写一个轻知乎日报
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>昨天在github上看到了一个第三方的知乎日报客户端，作者本人表示采用非正常手段获取了知乎的API（斜眼），我也装作不知道的借用一下，自己学习开发使用，不会传播。这篇博客记录下此次的编写过程。</p>
+<p>API主要分成四大块，分别是</p>
+<ul>
+<li>最新的新闻</li>
+<li>详细内容</li>
+<li>主题日报</li>
+<li>评论</li>
+</ul>
+<blockquote>
+<p>启动界面的图片也可以通过API获取到链接，但是由于是Web端所以就不适用启动界面了。</p>
+</blockquote>
+<p>自己这次开发是使用的Meteor，之前做过几个项目，所以用起来也比较熟悉，先搭建好了基本的文件结构，安装基本插件，有</p>
+<ul>
+<li>jquery </li>
+<li>iron:router</li>
+<li>http</li>
+<li>zimme:active-route</li>
+<li>momentjs:moment</li>
+<li>swiper:swiper</li>
+</ul>
+<blockquote>
+<p>由于不做商业使用，不存在安全问题，所以没有移除<code>insecure</code>包，可以减少一定的代码量</p>
+</blockquote>
+<p>要实现的任务路由结构比较简单，简单的分为</p>
+<ul>
+<li>新闻列表页</li>
+<li>详情页</li>
+</ul>
+<a id="more"></a>
+<p>首先写的是最新新闻列表页，主题可分为三个部分</p>
+<ul>
+<li>Header</li>
+<li>Swiper</li>
+<li>Pagination</li>
+<li>List</li>
+</ul>
+<p>Header是公用的，根据路由不同有不同的结构</p>
+<p>Swiper简单的查看API即可，由于在微信浏览器、手机qq内置浏览器和UC上显示效果太差，所以直接在这三个浏览器上把swiper给禁了，一了百了，页面看起来更简洁了呢</p>
+<p>List部分一开始只考虑到了获取最新的新闻，直接调了API得到一个JSON，有效的信息有</p>
+<ul>
+<li>缩略图</li>
+<li>标题</li>
+<li>日期</li>
+</ul>
+<p>在引用图片的时候碰到了一个很大的坑，直接引用显示403，未授权。查了一下发现原来知乎开启了防盗链，从外部服务器引用知乎的图片一律403。在google上搜了一下破解防盗链的方法也没看到什么有效的，顿时就慌了。因为这段时间一直在找免费的API练练手，上次找到了一个天气的API，用了一下信息太少了，这次发现这个知乎的也挺难得的。</p>
+<p>本来都打算放弃了，结果在一个知乎的RSS里看到了一些图片的链接，发现有点眼熟，仔细看了一下，后面一段网址果然就是知乎的图片链接，发现了一个神站，居然拉了知乎全部的图片。试了几个链接，全部都有图，然后果断用正则把JSON里body字段替换了一下，正则用的不太熟<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">contentHTML.set(result.data.body.replace(/http<span class="tag">\<span class="name">w</span><span class="string">&#123;0,1&#125;</span></span>:<span class="tag">\<span class="name">/</span></span><span class="tag">\<span class="name">/</span></span>pic/g, "https://images.weserv.nl/?url=pic"));</span><br><span class="line">//<span class="tag">\<span class="name">w</span></span>是任意字母或符号好像</span><br></pre></td></tr></table></figure></p>
+<p>这样的话把图片链接全部替换成了另外一个站点的，现在可以加载图片了。</p>
+<p>最新列表写完之后，将a标签的href设置为<code>/detail/</code>id是JSON数据中返回的字段。</p>
+<p>接下来要写的事详情页面，没有什么难度，先把路由设置为<code>/detail/:key</code>,然后编写Meteor Method来当详情页面生成时调用获取详情的API，id为必填字段，通过<code>Router.current().params.key</code>来获取。</p>
+<p>返回的body字段是页面内容的HTML代码，直接渲染到页面里，再调整下UI就行了</p>
+<p>到这里一个基本的知乎日报Web版就已经完成了，现在的功能有</p>
+<ul>
+<li>查看最新的日报列表</li>
+<li>查看日报详情</li>
+</ul>
+<p>接下来还要完成的功能是：</p>
+<ul>
+<li>查看主题日报</li>
+<li>查看历史内容</li>
+</ul>
+<p>因为主题日报同样是列表形式展现，所以我把它们放在同一个template下，通过条件来展示普通的日报和主题日报。</p>
+<p>好像没什么特别的了，跳过吧，说下翻页</p>
+<p>查看历史内容调用API时需要声明到日期，所以引入了Moment.js，具体代码如下<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> currentDate = <span class="keyword">new</span> <span class="type">ReactiveVar</span>(),</span><br><span class="line">	prevDays = <span class="keyword">new</span> <span class="type">ReactiveVar</span>(<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">Template.pagination.events(&#123;</span><br><span class="line">	<span class="string">'click .prev'</span>: <span class="type">function</span>() &#123;</span><br><span class="line">		prevDays.<span class="keyword">set</span>(prevDays.<span class="keyword">get</span>() + <span class="number">1</span>);</span><br><span class="line">		currentDate.<span class="keyword">set</span>(moment().subtract(prevDays.<span class="keyword">get</span>(), <span class="string">'days'</span>).format(<span class="string">'YYYYMMDD'</span>));</span><br><span class="line">		changeDate(currentDate.<span class="keyword">get</span>());</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">'click .next'</span>: <span class="type">function</span>() &#123;</span><br><span class="line">		<span class="keyword">if</span>(prevDays.<span class="keyword">get</span>() &gt; <span class="number">-1</span>) &#123;  </span><br><span class="line">		<span class="comment">//此判断是为了防止在当前日期继续点下一页</span></span><br><span class="line">			prevDays.<span class="keyword">set</span>(prevDays.<span class="keyword">get</span>() - <span class="number">1</span>);</span><br><span class="line">			currentDate.<span class="keyword">set</span>(moment().subtract(prevDays.<span class="keyword">get</span>(), <span class="string">'days'</span>).format(<span class="string">'YYYYMMDD'</span>));</span><br><span class="line">			changeDate(currentDate.<span class="keyword">get</span>());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>到这里基本上就结束啦，因为只是做一个轻日报，可以看内容就够了，不再继续添加查看评论功能了，之后再优化一下使用体验再来更新吧~</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/01/15/记录牛客网JS能力测试自己的答案/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          A test driven JS assessment
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/01/01/初识-Gulp/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          初识 Gulp
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="post-编写一个轻知乎日报" data-title="编写一个轻知乎日报" data-url="http://www.tangrui.win/blog/2016/01/09/编写一个轻知乎日报/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"troywith77"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0]
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+	<!-- 多说公共JS代码 end -->
+</section>
+
+    </div>
+    <footer id="footer">
+	<div class="footer-blog-title">
+		<p>&copy; 2018 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<p>Glad to meet you here!<br /></p>
+		<p>If you like the theme, go get it! <a href="https://github.com/troywith77/zenT">Install !</a></p>
+	</div>
+</footer>
+    
+
+<script src="/blog/js/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+  </div>
+</body>
+</html>

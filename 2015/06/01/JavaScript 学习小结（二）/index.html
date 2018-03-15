@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript 学习小结（Two） | Troy&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="JavaScript 错误 - throw、try 和 catchtry 语句测试代码块的错误。（运行代码） catch 语句处理错误。（发生错误时运行的代码） throw 语句创建自定义错误。（创建或者抛出异常） 如果把 throw 与 try 和 catch 一起使用，就能够控制程序流，并生成自定义的错误消息。123456789101112131415161718192021222324&amp;lt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 学习小结（Two）">
+<meta property="og:url" content="http://www.tangrui.win/blog/2015/06/01/JavaScript 学习小结（二）/index.html">
+<meta property="og:site_name" content="Troy&#39;s Blog">
+<meta property="og:description" content="JavaScript 错误 - throw、try 和 catchtry 语句测试代码块的错误。（运行代码） catch 语句处理错误。（发生错误时运行的代码） throw 语句创建自定义错误。（创建或者抛出异常） 如果把 throw 与 try 和 catch 一起使用，就能够控制程序流，并生成自定义的错误消息。123456789101112131415161718192021222324&amp;lt">
+<meta property="og:locale" content="ZH-CN">
+<meta property="og:updated_time" content="2018-01-24T02:05:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 学习小结（Two）">
+<meta name="twitter:description" content="JavaScript 错误 - throw、try 和 catchtry 语句测试代码块的错误。（运行代码） catch 语句处理错误。（发生错误时运行的代码） throw 语句创建自定义错误。（创建或者抛出异常） 如果把 throw 与 try 和 catch 一起使用，就能够控制程序流，并生成自定义的错误消息。123456789101112131415161718192021222324&amp;lt">
+  
+    <link rel="alternative" href="/atom.xml" title="Troy&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/favicon.ico">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body style="height: 100%">
+  <div id="bg">
+    <div id="bg-mask">
+      <h1>Troy's Blog</h1>
+      <p>思想，故事和灵感</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="http://tangrui.win">About</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
+    </ul>
+  </nav>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/blog/">Troy&#39;s Blog</a>
+	</h1>
+	<p class="cite-myself">思想，故事和灵感</p>
+</header>
+    <div id="main">
+      <article id="post-JavaScript 学习小结（二）" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/06/01/JavaScript 学习小结（二）/" class="article-date">
+  <time datetime="2015-06-01T14:47:55.000Z" itemprop="datePublished">06-01-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      JavaScript 学习小结（Two）
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h2 id="JavaScript-错误-throw、try-和-catch"><a href="#JavaScript-错误-throw、try-和-catch" class="headerlink" title="JavaScript 错误 - throw、try 和 catch"></a>JavaScript 错误 - throw、try 和 catch</h2><p>try 语句测试代码块的错误。（运行代码）</p>
+<p>catch 语句处理错误。（发生错误时运行的代码）</p>
+<p>throw 语句创建自定义错误。（创建或者抛出异常）</p>
+<p>如果把 throw 与 try 和 catch 一起使用，就能够控制程序流，并生成自定义的错误消息。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span><span class="params">()</span></span></span></span><br><span class="line"><span class="undefined">&#123;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">try</span></span></span><br><span class="line"><span class="undefined">  &#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> x=<span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).value;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">if</span>(x==<span class="string">""</span>)    <span class="keyword">throw</span> <span class="string">"empty"</span>;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">if</span>(<span class="built_in">isNaN</span>(x)) <span class="keyword">throw</span> <span class="string">"not a number"</span>;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">if</span>(x&gt;<span class="number">10</span>)     <span class="keyword">throw</span> <span class="string">"too high"</span>;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">if</span>(x&lt;<span class="number">5</span>)      <span class="keyword">throw</span> <span class="string">"too low"</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">catch</span>(err)</span></span><br><span class="line"><span class="undefined">  &#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> y=<span class="built_in">document</span>.getElementById(<span class="string">"mess"</span>);</span></span><br><span class="line"><span class="actionscript">  y.innerHTML=<span class="string">"Error: "</span> + err + <span class="string">"."</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>My First JavaScript<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Please input a number between 5 and 10:<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"demo"</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">onclick</span>=<span class="string">"myFunction()"</span>&gt;</span>Test Input<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"mess"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">validateForm</span><span class="params">()</span></span></span></span><br><span class="line"><span class="undefined">&#123;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> x=<span class="built_in">document</span>.forms[<span class="string">"myForm"</span>][<span class="string">"fname"</span>].value;  <span class="comment">//选择forms对象的[form的"name"][input的"name"]</span></span></span><br><span class="line"><span class="actionscript"><span class="keyword">if</span> (x==<span class="literal">null</span> || x==<span class="string">""</span>)</span></span><br><span class="line"><span class="undefined">  &#123;</span></span><br><span class="line"><span class="actionscript">  alert(<span class="string">"姓必须填写"</span>);</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">"myForm"</span> <span class="attr">action</span>=<span class="string">"demo-form.php"</span> <span class="attr">onsubmit</span>=<span class="string">"return validateForm()"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">姓: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"fname"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="E-mail-验证"><a href="#E-mail-验证" class="headerlink" title="E-mail 验证"></a>E-mail 验证</h2><p>输入的数据必须包含 @ 符号和点号(.)。同时，@ 不可以是邮件地址的首字符，并且 @ 之后需有至少一个点号：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">validateForm</span><span class="params">()</span></span></span></span><br><span class="line"><span class="undefined">&#123;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> x=<span class="built_in">document</span>.forms[<span class="string">"myForm"</span>][<span class="string">"email"</span>].value;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">var</span> atpos=x.indexOf(<span class="string">"@"</span>);</span></span><br><span class="line"><span class="actionscript"><span class="keyword">var</span> dotpos=x.lastIndexOf(<span class="string">"."</span>);</span></span><br><span class="line"><span class="actionscript"><span class="keyword">if</span> (atpos&lt;<span class="number">1</span> || dotpos&lt;atpos+<span class="number">2</span> || dotpos+<span class="number">2</span>&gt;=x.length)</span></span><br><span class="line"><span class="undefined">  &#123;</span></span><br><span class="line"><span class="actionscript">  alert(<span class="string">"Not a valid e-mail address"</span>);</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">"myForm"</span> <span class="attr">action</span>=<span class="string">"demo-form.php"</span> <span class="attr">onsubmit</span>=<span class="string">"return validateForm();"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">Email: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>JSON 是用于存储和传输数据的格式，通常用于服务端向网页传递数据 。</p>
+<p>JSON 格式在语法上与创建 JavaScript 对象代码是相同的。由于它们很相似，所以 JavaScript 程序可以很容易的将 JSON 数据转换为 JavaScript 对象。</p>
+<h3 id="JSON-语法规则"><a href="#JSON-语法规则" class="headerlink" title="JSON 语法规则"></a>JSON 语法规则</h3><ul>
+<li>数据为 键/值 对。</li>
+<li>数据由逗号分隔。</li>
+<li>大括号保存对象</li>
+<li>方括号保存数组</li>
+</ul>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;p id=<span class="string">"demo"</span>&gt;&lt;<span class="string">/p</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">var text = '&#123;<span class="string">"employees"</span>:[' +      <span class="string">//</span>创建 JavaScript 字符串，字符传为 JSON 格式的数据<span class="params">(不知道"+"有什么用)</span></span><br><span class="line">'&#123;<span class="string">"firstName"</span>:<span class="string">"John"</span>,<span class="string">"lastName"</span>:<span class="string">"Doe"</span> &#125;,' +</span><br><span class="line">'&#123;<span class="string">"firstName"</span>:<span class="string">"Anna"</span>,<span class="string">"lastName"</span>:<span class="string">"Smith"</span> &#125;,' +</span><br><span class="line">'&#123;<span class="string">"firstName"</span>:<span class="string">"Peter"</span>,<span class="string">"lastName"</span>:<span class="string">"Jones"</span> &#125;]&#125;';</span><br><span class="line"></span><br><span class="line">obj = JSON.parse<span class="params">(text)</span>;    <span class="string">//JSON.parse</span><span class="params">()</span> 将字符串转换为 JavaScript 对象</span><br><span class="line">document.getElementById<span class="params">("demo")</span><span class="string">.innerHTML</span> =</span><br><span class="line">obj.employees[1]<span class="string">.firstName</span> + <span class="string">" "</span> + obj.employees[1]<span class="string">.lastName</span>;</span><br><span class="line">&lt;<span class="string">/script</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>eval() 函数使用的是 JavaScript 编译器，可解析 JSON 文本，然后生成 JavaScript 对象。必须把文本包围在括号中，这样才能避免语法错误：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> object1 = <span class="built_in">eval</span>(<span class="string">"&#123;&#125;"</span>);        <span class="comment">//抛出错误</span></span><br><span class="line"><span class="keyword">var</span> object2 = <span class="built_in">eval</span>(<span class="string">" (&#123;&#125;) "</span>);        <span class="comment">// 没问题</span></span><br><span class="line"><span class="keyword">var</span> object3 = <span class="built_in">eval</span>( <span class="string">"("</span> + jsonText + <span class="string">")"</span> );        <span class="comment">// 通用的解决方案</span></span><br></pre></td></tr></table></figure></p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/06/07/JavaScript 学习小结（三）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript 学习小结（Three）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/05/24/JavaScript 学习小结（一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          JavaScript 学习小结（One）
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="post-JavaScript 学习小结（二）" data-title="JavaScript 学习小结（Two）" data-url="http://www.tangrui.win/blog/2015/06/01/JavaScript 学习小结（二）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"troywith77"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0]
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+	<!-- 多说公共JS代码 end -->
+</section>
+
+    </div>
+    <footer id="footer">
+	<div class="footer-blog-title">
+		<p>&copy; 2018 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<p>Glad to meet you here!<br /></p>
+		<p>If you like the theme, go get it! <a href="https://github.com/troywith77/zenT">Install !</a></p>
+	</div>
+</footer>
+    
+
+<script src="/blog/js/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+  </div>
+</body>
+</html>

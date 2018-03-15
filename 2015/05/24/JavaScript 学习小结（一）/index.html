@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript 学习小结（One） | Troy&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="innerHTML获取（改变）的是元素的内容加上标签。不能获取或改变元素最外层的标签;(不知道是不是我弄错了，感觉应该要可以改才对，或许有别的标签捏？) 123&amp;lt;h1&amp;gt;I love &amp;lt;em&amp;gt;JavaScript&amp;lt;/em&amp;gt;&amp;lt;/h1&amp;gt;alert(document.getElementsByTagName(&quot;h1&quot;)[0].innerHTML)//I l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 学习小结（One）">
+<meta property="og:url" content="http://www.tangrui.win/blog/2015/05/24/JavaScript 学习小结（一）/index.html">
+<meta property="og:site_name" content="Troy&#39;s Blog">
+<meta property="og:description" content="innerHTML获取（改变）的是元素的内容加上标签。不能获取或改变元素最外层的标签;(不知道是不是我弄错了，感觉应该要可以改才对，或许有别的标签捏？) 123&amp;lt;h1&amp;gt;I love &amp;lt;em&amp;gt;JavaScript&amp;lt;/em&amp;gt;&amp;lt;/h1&amp;gt;alert(document.getElementsByTagName(&quot;h1&quot;)[0].innerHTML)//I l">
+<meta property="og:locale" content="ZH-CN">
+<meta property="og:updated_time" content="2018-01-24T02:05:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 学习小结（One）">
+<meta name="twitter:description" content="innerHTML获取（改变）的是元素的内容加上标签。不能获取或改变元素最外层的标签;(不知道是不是我弄错了，感觉应该要可以改才对，或许有别的标签捏？) 123&amp;lt;h1&amp;gt;I love &amp;lt;em&amp;gt;JavaScript&amp;lt;/em&amp;gt;&amp;lt;/h1&amp;gt;alert(document.getElementsByTagName(&quot;h1&quot;)[0].innerHTML)//I l">
+  
+    <link rel="alternative" href="/atom.xml" title="Troy&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/favicon.ico">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body style="height: 100%">
+  <div id="bg">
+    <div id="bg-mask">
+      <h1>Troy's Blog</h1>
+      <p>思想，故事和灵感</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="http://tangrui.win">About</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
+    </ul>
+  </nav>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/blog/">Troy&#39;s Blog</a>
+	</h1>
+	<p class="cite-myself">思想，故事和灵感</p>
+</header>
+    <div id="main">
+      <article id="post-JavaScript 学习小结（一）" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/05/24/JavaScript 学习小结（一）/" class="article-date">
+  <time datetime="2015-05-24T13:28:11.000Z" itemprop="datePublished">05-24-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      JavaScript 学习小结（One）
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<ul>
+<li><p>innerHTML获取（改变）的是元素的内容加上标签。不能获取或改变元素最外层的标签;<br>(不知道是不是我弄错了，感觉应该要可以改才对，或许有别的标签捏？)</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">&lt;h1&gt;</span>I love <span class="variable">&lt;em&gt;</span>JavaScript<span class="variable">&lt;/em&gt;</span><span class="variable">&lt;/h1&gt;</span></span><br><span class="line">alert(document.getElementsByTagName(<span class="string">"h1"</span>)[0].innerHTML)</span><br><span class="line">//I love <span class="variable">&lt;em&gt;</span>JavaScript<span class="variable">&lt;/em&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用childNodes.nodeValue来更改文本节点的值时需要先选择文本节点：</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;p id=<span class="string">"demo"</span>&gt;点击&lt;mark&gt;下面&lt;<span class="regexp">/mark&gt;的按钮来显示今天是&lt;em&gt;周几&lt;/</span>em&gt;<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="keyword">var</span> para = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line"><span class="built_in">document</span>.write(para.firstChild.nodeValue);  <span class="comment">//点击</span></span><br><span class="line"><span class="built_in">document</span>.write(para.lastChild.nodeValue);  <span class="comment">//null</span></span><br><span class="line"><span class="built_in">document</span>.write(para.childNodes[<span class="number">2</span>].nodeValue);  <span class="comment">//的按钮来显示今天是</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>改变CSS的方法是：element.style.property = “value” ;</li>
+<li>isNaN()方法判断一个值是否是数字</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> onclick=<span class="string">"what()"</span>&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">what</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).value</span><br><span class="line">    <span class="keyword">if</span>(x == <span class="string">""</span>||<span class="built_in">isNaN</span>(x))&#123;</span><br><span class="line">        alert(<span class="string">"not a numebr"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>文档加载完成后再使用document.write整个文档会被覆盖（不建议使用）;</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>数字 + 字符 会将数字转换成字符后连接起来;</li>
+</ul>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">10 </span>+ <span class="string">"10"</span>  //<span class="string">"1010"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建元素节点、文本节点并将它们各自插入到父元素中</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的 Web 页面<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"demo"</span>&gt;</span>一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"myDIV"</span>&gt;</span>一个 DIV。<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"answer()"</span>&gt;</span>Answer<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML=<span class="string">"你好 Troy"</span>;</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.getElementById(<span class="string">"myDIV"</span>).innerHTML=<span class="string">"你最近怎么样?"</span>;</span></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">answer</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> pp = <span class="built_in">document</span>.createElement(<span class="string">"p"</span>);</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> txt = <span class="built_in">document</span>.createTextNode(<span class="string">"I'm fine~~"</span>);</span></span><br><span class="line"><span class="undefined">pp.appendChild(txt);</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.getElementsByTagName(<span class="string">"body"</span>)[<span class="number">0</span>].appendChild(pp);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>break 跳出循环， continue 跳出本次循环开始下一次循环；</li>
+<li>JavaScript 代码中字符串内可以使用 / 换行；</li>
+<li>match()方法可以检查是否匹配，可以传入字符串，也可以用正则匹配</li>
+<li>定义数组是var colors = [ “red”, “blue”, “maroon” ],定义对象是var person = { firstName: “Rui”, lastName: “Tang”, age: “20” };调用对象属性是 person.age 或者 person[“age”]</li>
+</ul>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123; fullName: function()<span class="meta">&#123;...&#125;</span>&#125;//定义数组的方法</span><br><span class="line">person.fullName() //调用方法，如onclick = person.fullName();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果把值赋给尚未声明的变量，该变量将被自动作为全局变量声明。</li>
+<li>如果在函数内直接给全局变量赋值将会覆盖全局变量的值。<h5 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h5></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>charAt()</td>
+<td>返回指定索引位置的字符</td>
+</tr>
+<tr>
+<td>charCodeAt()</td>
+<td>返回指定索引位置字符的 Unicode 值</td>
+</tr>
+<tr>
+<td>concat()</td>
+<td>连接两个或多个字符串，返回连接后的字符串</td>
+</tr>
+<tr>
+<td>fromCharCode()</td>
+<td>将字符转换为 Unicode 值</td>
+</tr>
+<tr>
+<td>indexOf()</td>
+<td>返回字符串中检索指定字符第一次出现的位置</td>
+</tr>
+<tr>
+<td>lastIndexOf()</td>
+<td>返回字符串中检索指定字符最后一次出现的位置</td>
+</tr>
+<tr>
+<td>localeCompare()</td>
+<td>用本地特定的顺序来比较两个字符串</td>
+</tr>
+<tr>
+<td>match()</td>
+<td>找到一个或多个正则表达式的匹配</td>
+</tr>
+<tr>
+<td>replace()</td>
+<td>替换与正则表达式匹配的子串</td>
+</tr>
+<tr>
+<td>search()</td>
+<td>检索与正则表达式相匹配的值</td>
+</tr>
+<tr>
+<td>slice()</td>
+<td>提取字符串的片断，并在新的字符串中返回被提取的部分</td>
+</tr>
+<tr>
+<td>split()</td>
+<td>把字符串分割为子字符串数组</td>
+</tr>
+<tr>
+<td>substr()</td>
+<td>从起始索引号提取字符串中指定数目的字符</td>
+</tr>
+<tr>
+<td>substring()</td>
+<td>提取字符串中两个指定的索引号之间的字符</td>
+</tr>
+<tr>
+<td>toLocaleLowerCase()</td>
+<td>根据主机的语言环境把字符串转换为小写，只有几种语言（如土耳其语）具有地方特有的大小写映射</td>
+</tr>
+<tr>
+<td>toLocaleUpperCase()</td>
+<td>根据主机的语言环境把字符串转换为大写，只有几种语言（如土耳其语）具有地方特有的大小写映射</td>
+</tr>
+<tr>
+<td>toLowerCase()</td>
+<td>把字符串转换为小写</td>
+</tr>
+<tr>
+<td>toString()</td>
+<td>返回字符串对象值</td>
+</tr>
+<tr>
+<td>toUpperCase()</td>
+<td>把字符串转换为大写</td>
+</tr>
+<tr>
+<td>trim()</td>
+<td>移除字符串首尾空白</td>
+</tr>
+<tr>
+<td>valueOf()</td>
+<td>返回某个字符串对象的原始值</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Switch语句：工作原理，首先设置表达式 n（通常是一个变量）。随后表达式的值会与结构中的每个 case 的值做比较。如果存在匹配，则与该 case 关联的代码块会被执行。请使用 break 来阻止代码自动地向下一个 case 运行。</li>
+</ul>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(n)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">  执行代码块 <span class="number">1</span></span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">  执行代码块 <span class="number">2</span></span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line"> n 与 <span class="keyword">case</span> <span class="number">1</span> 和 <span class="keyword">case</span> <span class="number">2</span> 不同时执行的代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>数字使用 .toString( ) 方法需要添加括号； String()</li>
+</ul>
+<!--more-->
+<h5 id="将字符串转换为数字"><a href="#将字符串转换为数字" class="headerlink" title="将字符串转换为数字"></a>将字符串转换为数字</h5><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">Number</span><span class="params">(<span class="string">"3.14"</span>)</span></span>    <span class="comment">// 返回 3.14</span></span><br><span class="line"><span class="function"><span class="title">Number</span><span class="params">(<span class="string">" "</span>)</span></span>       <span class="comment">// 返回 0</span></span><br><span class="line"><span class="function"><span class="title">Number</span><span class="params">(<span class="string">""</span>)</span></span>        <span class="comment">// 返回 0</span></span><br><span class="line"><span class="function"><span class="title">Number</span><span class="params">(<span class="string">"99 88"</span>)</span></span>   <span class="comment">// 返回 NaN</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Date()对象</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getDate()</td>
+<td>从 Date 对象返回一个月中的某一天 (1 ~ 31)。</td>
+</tr>
+<tr>
+<td>getDay()</td>
+<td>从 Date 对象返回一周中的某一天 (0 ~ 6)。</td>
+</tr>
+<tr>
+<td>getFullYear()</td>
+<td>从 Date 对象以四位数字返回年份。</td>
+</tr>
+<tr>
+<td>getHours()</td>
+<td>返回 Date 对象的小时 (0 ~ 23)。</td>
+</tr>
+<tr>
+<td>getMilliseconds()</td>
+<td>返回 Date 对象的毫秒(0 ~ 999)。</td>
+</tr>
+<tr>
+<td>getMinutes()</td>
+<td>返回 Date 对象的分钟 (0 ~ 59)。</td>
+</tr>
+<tr>
+<td>getMonth()</td>
+<td>从 Date 对象返回月份 (0 ~ 11)。</td>
+</tr>
+<tr>
+<td>getSeconds()</td>
+<td>返回 Date 对象的秒数 (0 ~ 59)。</td>
+</tr>
+<tr>
+<td>getTime()</td>
+<td>返回 1970 年 1 月 1 日至今的毫秒数。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>运算符 + 可以把字符串转换为数字，如果字符串里的内容不是数字的话，那么字符串仍会被转换，但值为NaN<h5 id="自动转换类型-Type-Conversion"><a href="#自动转换类型-Type-Conversion" class="headerlink" title="自动转换类型 Type Conversion"></a>自动转换类型 Type Conversion<br></h5>当 JavaScript 尝试操作一个 “错误” 的数据类型时，会自动转换为 “正确” 的数据类型。</li>
+</ul>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">5 </span>+ null    // 返回 <span class="number">5</span>         because null is converted <span class="keyword">to</span> <span class="number">0</span></span><br><span class="line"><span class="string">"5"</span> + null  // 返回<span class="string">"5null"</span>   because null is converted <span class="keyword">to</span> <span class="string">"null"</span></span><br><span class="line"><span class="string">"5"</span> + <span class="number">1</span>     // 返回 <span class="string">"51"</span>      because <span class="number">1</span> is converted <span class="keyword">to</span> <span class="string">"1"</span></span><br><span class="line"><span class="string">"5"</span> - <span class="number">1</span>     // 返回 <span class="number">4</span>         because <span class="string">"5"</span> is converted <span class="keyword">to</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/06/01/JavaScript 学习小结（二）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript 学习小结（Two）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/04/01/JavaScript-DOM-编程艺术-第七章/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          JavaScript DOM 编程艺术 第七章 动态创建标记
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="post-JavaScript 学习小结（一）" data-title="JavaScript 学习小结（One）" data-url="http://www.tangrui.win/blog/2015/05/24/JavaScript 学习小结（一）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"troywith77"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0]
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+	<!-- 多说公共JS代码 end -->
+</section>
+
+    </div>
+    <footer id="footer">
+	<div class="footer-blog-title">
+		<p>&copy; 2018 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<p>Glad to meet you here!<br /></p>
+		<p>If you like the theme, go get it! <a href="https://github.com/troywith77/zenT">Install !</a></p>
+	</div>
+</footer>
+    
+
+<script src="/blog/js/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+  </div>
+</body>
+</html>

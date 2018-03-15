@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Troy&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="属于 Troy 的写字的地方 | Troy&apos;s Blog | blog | 前端 | Front-end">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Troy&#39;s Blog">
+<meta property="og:url" content="http://www.tangrui.win/blog/page/4/index.html">
+<meta property="og:site_name" content="Troy&#39;s Blog">
+<meta property="og:description" content="属于 Troy 的写字的地方 | Troy&apos;s Blog | blog | 前端 | Front-end">
+<meta property="og:locale" content="ZH-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Troy&#39;s Blog">
+<meta name="twitter:description" content="属于 Troy 的写字的地方 | Troy&apos;s Blog | blog | 前端 | Front-end">
+  
+    <link rel="alternative" href="/atom.xml" title="Troy&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/favicon.ico">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body style="height: 100%">
+  <div id="bg">
+    <div id="bg-mask">
+      <h1>Troy's Blog</h1>
+      <p>思想，故事和灵感</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="http://tangrui.win">About</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
+    </ul>
+  </nav>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/blog/">Troy&#39;s Blog</a>
+	</h1>
+	<p class="cite-myself">思想，故事和灵感</p>
+</header>
+    <div id="main">
+      
+  
+    <article id="post-JavaScript 学习小结（二）" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/06/01/JavaScript 学习小结（二）/" class="article-date">
+  <time datetime="2015-06-01T14:47:55.000Z" itemprop="datePublished">06-01-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2015/06/01/JavaScript 学习小结（二）/">JavaScript 学习小结（Two）</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+			<h2 id="JavaScript-错误-throw、try-和-catch"><a href="#JavaScript-错误-throw、try-和-catch" class="headerlink" title="JavaScript 错误 - throw、try 和 catch"></a>JavaScript 错误 - throw、try 和 catch</h2><p>try 语句测试代码块的错误。（运行代码）</p>
+<p>catch 语句处理错误。（发生错误时运行的代码）</p>
+<p>throw 语句创建自定义错误。（创建或者抛出异常）</p>
+<p>如果把 throw 与 try 和 catch 一起使用，就能够控制程序流，并生成自定义的错误消息。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span><span class="params">()</span></span></span></span><br><span class="line"><span class="undefined">&#123;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">try</span></span></span><br><span class="line"><span class="undefined">  &#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> x=<span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).value;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">if</span>(x==<span class="string">""</span>)    <span class="keyword">throw</span> <span class="string">"empty"</span>;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">if</span>(<span class="built_in">isNaN</span>(x)) <span class="keyword">throw</span> <span class="string">"not a number"</span>;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">if</span>(x&gt;<span class="number">10</span>)     <span class="keyword">throw</span> <span class="string">"too high"</span>;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">if</span>(x&lt;<span class="number">5</span>)      <span class="keyword">throw</span> <span class="string">"too low"</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">catch</span>(err)</span></span><br><span class="line"><span class="undefined">  &#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> y=<span class="built_in">document</span>.getElementById(<span class="string">"mess"</span>);</span></span><br><span class="line"><span class="actionscript">  y.innerHTML=<span class="string">"Error: "</span> + err + <span class="string">"."</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>My First JavaScript<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Please input a number between 5 and 10:<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"demo"</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">onclick</span>=<span class="string">"myFunction()"</span>&gt;</span>Test Input<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"mess"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">validateForm</span><span class="params">()</span></span></span></span><br><span class="line"><span class="undefined">&#123;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> x=<span class="built_in">document</span>.forms[<span class="string">"myForm"</span>][<span class="string">"fname"</span>].value;  <span class="comment">//选择forms对象的[form的"name"][input的"name"]</span></span></span><br><span class="line"><span class="actionscript"><span class="keyword">if</span> (x==<span class="literal">null</span> || x==<span class="string">""</span>)</span></span><br><span class="line"><span class="undefined">  &#123;</span></span><br><span class="line"><span class="actionscript">  alert(<span class="string">"姓必须填写"</span>);</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">"myForm"</span> <span class="attr">action</span>=<span class="string">"demo-form.php"</span> <span class="attr">onsubmit</span>=<span class="string">"return validateForm()"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">姓: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"fname"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+			
+				<p class="article-more-link">
+					<a href="/blog/2015/06/01/JavaScript 学习小结（二）/#more">Read More</a>
+				</p>
+      
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+  
+    <article id="post-JavaScript 学习小结（一）" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/05/24/JavaScript 学习小结（一）/" class="article-date">
+  <time datetime="2015-05-24T13:28:11.000Z" itemprop="datePublished">05-24-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2015/05/24/JavaScript 学习小结（一）/">JavaScript 学习小结（One）</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+			<ul>
+<li><p>innerHTML获取（改变）的是元素的内容加上标签。不能获取或改变元素最外层的标签;<br>(不知道是不是我弄错了，感觉应该要可以改才对，或许有别的标签捏？)</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">&lt;h1&gt;</span>I love <span class="variable">&lt;em&gt;</span>JavaScript<span class="variable">&lt;/em&gt;</span><span class="variable">&lt;/h1&gt;</span></span><br><span class="line">alert(document.getElementsByTagName(<span class="string">"h1"</span>)[0].innerHTML)</span><br><span class="line">//I love <span class="variable">&lt;em&gt;</span>JavaScript<span class="variable">&lt;/em&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用childNodes.nodeValue来更改文本节点的值时需要先选择文本节点：</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;p id=<span class="string">"demo"</span>&gt;点击&lt;mark&gt;下面&lt;<span class="regexp">/mark&gt;的按钮来显示今天是&lt;em&gt;周几&lt;/</span>em&gt;<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="keyword">var</span> para = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line"><span class="built_in">document</span>.write(para.firstChild.nodeValue);  <span class="comment">//点击</span></span><br><span class="line"><span class="built_in">document</span>.write(para.lastChild.nodeValue);  <span class="comment">//null</span></span><br><span class="line"><span class="built_in">document</span>.write(para.childNodes[<span class="number">2</span>].nodeValue);  <span class="comment">//的按钮来显示今天是</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>改变CSS的方法是：element.style.property = “value” ;</li>
+<li>isNaN()方法判断一个值是否是数字</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> onclick=<span class="string">"what()"</span>&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">what</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).value</span><br><span class="line">    <span class="keyword">if</span>(x == <span class="string">""</span>||<span class="built_in">isNaN</span>(x))&#123;</span><br><span class="line">        alert(<span class="string">"not a numebr"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>文档加载完成后再使用document.write整个文档会被覆盖（不建议使用）;</li>
+</ul>
+			
+				<p class="article-more-link">
+					<a href="/blog/2015/05/24/JavaScript 学习小结（一）/#more">Read More</a>
+				</p>
+      
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+  
+    <article id="post-JavaScript-DOM-编程艺术-第七章" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/04/01/JavaScript-DOM-编程艺术-第七章/" class="article-date">
+  <time datetime="2015-04-01T12:11:57.000Z" itemprop="datePublished">04-01-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2015/04/01/JavaScript-DOM-编程艺术-第七章/">JavaScript DOM 编程艺术 第七章 动态创建标记</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+			<h3 id="一些传统方法"><a href="#一些传统方法" class="headerlink" title="一些传统方法"></a>一些传统方法</h3><ul>
+<li>####document.write</li>
+<li>####innerHTML</li>
+</ul>
+<h3 id="DOM-方法"><a href="#DOM-方法" class="headerlink" title="DOM 方法"></a>DOM 方法</h3><ul>
+<li>createElement方法：创建一个元素节点</li>
+</ul>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.createElement(nodeName)</span><br><span class="line"><span class="built_in">document</span>.createElement(<span class="string">"p"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>appendChild方法：将节点插入另一个节点内</li>
+</ul>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parent</span>.appendChild(child)</span><br><span class="line"><span class="keyword">var</span> para = <span class="built_in">document</span>.createElement(<span class="string">"p"</span>);</span><br><span class="line"><span class="keyword">var</span> testdiv = <span class="built_in">document</span>.getElementById(<span class="string">"testdiv"</span>);</span><br><span class="line">testdiv.appendChild(para);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>createTextNode：创建一个文本节点</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.createTextNode(text)</span><br><span class="line"><span class="keyword">var</span> txt = <span class="built_in">document</span>.createTextNode(<span class="string">"Hello World"</span>);</span><br><span class="line">para.appendChild(txt);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This is <span class="tag">&lt;<span class="name">em</span>&gt;</span>my<span class="tag">&lt;/<span class="name">em</span>&gt;</span> content.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+			
+				<p class="article-more-link">
+					<a href="/blog/2015/04/01/JavaScript-DOM-编程艺术-第七章/#more">Read More</a>
+				</p>
+      
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+  
+    <article id="post-JavaScript-DOM-编程艺术-第六章" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/03/26/JavaScript-DOM-编程艺术-第六章/" class="article-date">
+  <time datetime="2015-03-26T12:31:52.000Z" itemprop="datePublished">03-26-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2015/03/26/JavaScript-DOM-编程艺术-第六章/">JavaScript DOM 编程艺术 第六章</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+			<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prepareGallery</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementById||!<span class="built_in">document</span>.getElementsByTagName||!<span class="built_in">document</span>.getElementById(<span class="string">"imagegallery"</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">//检测浏览器是否支持以上方法及id为"imagegallery"的对象是否存在</span></span><br><span class="line">    <span class="keyword">var</span> gallery = <span class="built_in">document</span>.getElementById(<span class="string">"imagegallery"</span>);</span><br><span class="line">    <span class="comment">//将id为"imagegallery"的对象赋给变量 gallery</span></span><br><span class="line">    <span class="keyword">var</span> links = gallery.getElementsByTagName(<span class="string">"a"</span>);</span><br><span class="line">    <span class="comment">//将gallery里的所有a元素赋给links变量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; links.length; i ++)&#123;</span><br><span class="line">        <span class="comment">//遍历links里的元素</span></span><br><span class="line">        links.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> showPic(<span class="keyword">this</span>) ? <span class="literal">false</span> : <span class="literal">true</span>;</span><br><span class="line">            <span class="comment">//像links里的元素添加onclick事件</span></span><br><span class="line">            <span class="comment">//如果showPic函数返回true则onclick事件为false，浏览器检测不到点击事件</span></span><br><span class="line">            <span class="comment">//就不会打开新链接，反之亦然</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showPic</span>(<span class="params">whichpic</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementById(<span class="string">"placeholder"</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">//检查“placeholder”是否存在</span></span><br><span class="line">    <span class="keyword">var</span> source = whichpic.getAttribute(<span class="string">"href"</span>);</span><br><span class="line">    <span class="comment">//获取运行showPic函数的元素的"href"值并将其赋给source变量</span></span><br><span class="line">    <span class="keyword">var</span> placeholder = <span class="built_in">document</span>.getElementById(<span class="string">"placeholder"</span>);</span><br><span class="line">    <span class="comment">//获取id为"placeholder"的对象并将其赋给placeholder变量</span></span><br><span class="line">    <span class="keyword">if</span>(placeholder.nodeName != <span class="string">"IMG"</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">//检查placeholder的节点名称是不是"IMG"(大写)，检查它是不是img元素</span></span><br><span class="line">    placeholder.setAttribute(<span class="string">"src"</span>, source);</span><br><span class="line">    <span class="comment">//设置placeholder的"src"属性为source变量的值</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">document</span>.getElementById(<span class="string">"description"</span>))&#123;</span><br><span class="line">        <span class="comment">//如果存在id为"description"的对象的话，就运行一下代码</span></span><br><span class="line">        <span class="keyword">var</span> text = whichpic.getAttribute(<span class="string">"title"</span>) ? whichpic.getAttribute(<span class="string">"title"</span>) : <span class="string">""</span>;</span><br><span class="line">        <span class="comment">//如果存在"title"属性的话就将值赋给text，如果没有就将空字符串赋给text</span></span><br><span class="line">        <span class="keyword">var</span> description = <span class="built_in">document</span>.getElementById(<span class="string">"description"</span>);</span><br><span class="line">        <span class="keyword">if</span>(description.firstChild.nodeType == <span class="number">3</span>)&#123;</span><br><span class="line">            description.fitstChild.nodeValue = text;</span><br><span class="line">            <span class="comment">//将description的第一个子元素(即文本节点)的节点值设置为text的值</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+			
+				<p class="article-more-link">
+					<a href="/blog/2015/03/26/JavaScript-DOM-编程艺术-第六章/#more">Read More</a>
+				</p>
+      
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+  
+    <article id="post-JavaScript-DOM-编程艺术-第五章" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/03/16/JavaScript-DOM-编程艺术-第五章/" class="article-date">
+  <time datetime="2015-03-16T12:39:48.000Z" itemprop="datePublished">03-16-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2015/03/16/JavaScript-DOM-编程艺术-第五章/">JavaScript DOM 编程艺术 第五章</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h3 id="平稳退化"><a href="#平稳退化" class="headerlink" title="平稳退化"></a>平稳退化<br></h3><p>确保网页在没有 JavaScript 的情况下也能正常工作。</p>
+<h3 id="分离-JavaScript"><a href="#分离-JavaScript" class="headerlink" title="分离 JavaScript"></a>分离 JavaScript<br></h3><p>把网页的结构和内容与 JavaScript 脚本的动作行为分开。</p>
+<h3 id="向后兼容性"><a href="#向后兼容性" class="headerlink" title="向后兼容性"></a>向后兼容性<br></h3><p>确保老版本的浏览器不会因为你的 JavaScript 脚本而死掉。</p>
+<h3 id="性能考虑"><a href="#性能考虑" class="headerlink" title="性能考虑"></a>性能考虑<br></h3><p>确定脚本执行的性能最优</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/blog/page/3/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog/page/5/">5</a><a class="extend next" rel="next" href="/blog/page/5/">Next &raquo;</a>
+    </nav>
+  
+
+    </div>
+    <footer id="footer">
+	<div class="footer-blog-title">
+		<p>&copy; 2018 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<p>Glad to meet you here!<br /></p>
+		<p>If you like the theme, go get it! <a href="https://github.com/troywith77/zenT">Install !</a></p>
+	</div>
+</footer>
+    
+
+<script src="/blog/js/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+  </div>
+</body>
+</html>

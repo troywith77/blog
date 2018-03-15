@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Parsing URLs with the DOM! | Troy&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="神奇地利用原生的 DOM API 来解析 URL~ 方法是创建一个 a 标签，然后把 URL 设置为 a 标签的 href 属性。具体的看下面的代码吧~  PaeseURL  12345678910111213141516171819202122232425262728293031// This function creates a new anchor element and uses loca">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Parsing URLs with the DOM!">
+<meta property="og:url" content="http://www.tangrui.win/blog/2015/07/28/Parsing-URLs-with-the-DOM/index.html">
+<meta property="og:site_name" content="Troy&#39;s Blog">
+<meta property="og:description" content="神奇地利用原生的 DOM API 来解析 URL~ 方法是创建一个 a 标签，然后把 URL 设置为 a 标签的 href 属性。具体的看下面的代码吧~  PaeseURL  12345678910111213141516171819202122232425262728293031// This function creates a new anchor element and uses loca">
+<meta property="og:locale" content="ZH-CN">
+<meta property="og:updated_time" content="2018-01-24T02:05:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Parsing URLs with the DOM!">
+<meta name="twitter:description" content="神奇地利用原生的 DOM API 来解析 URL~ 方法是创建一个 a 标签，然后把 URL 设置为 a 标签的 href 属性。具体的看下面的代码吧~  PaeseURL  12345678910111213141516171819202122232425262728293031// This function creates a new anchor element and uses loca">
+  
+    <link rel="alternative" href="/atom.xml" title="Troy&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog/favicon.ico">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body style="height: 100%">
+  <div id="bg">
+    <div id="bg-mask">
+      <h1>Troy's Blog</h1>
+      <p>思想，故事和灵感</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="http://tangrui.win">About</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
+    </ul>
+  </nav>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/blog/">Troy&#39;s Blog</a>
+	</h1>
+	<p class="cite-myself">思想，故事和灵感</p>
+</header>
+    <div id="main">
+      <article id="post-Parsing-URLs-with-the-DOM" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/07/28/Parsing-URLs-with-the-DOM/" class="article-date">
+  <time datetime="2015-07-28T14:10:54.000Z" itemprop="datePublished">07-28-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      Parsing URLs with the DOM!
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>神奇地利用原生的 DOM API 来解析 URL~ 方法是创建一个 a 标签，然后把 URL 设置为 a 标签的 href 属性。具体的看下面的代码吧~</p>
+<p><strong> PaeseURL </strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// This function creates a new anchor element and uses location</span></span><br><span class="line"><span class="comment">// properties (inherent) to get the desired URL data. Some String</span></span><br><span class="line"><span class="comment">// operations are used (to normalize results across browsers).</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseURL</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a =  <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">    a.href = url;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        source: url,</span><br><span class="line">        protocol: a.protocol.replace(<span class="string">':'</span>,<span class="string">''</span>),</span><br><span class="line">        host: a.hostname,</span><br><span class="line">        port: a.port,</span><br><span class="line">        query: a.search,</span><br><span class="line">        params: (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> ret = &#123;&#125;,</span><br><span class="line">                seg = a.search.replace(<span class="regexp">/^?/</span>,<span class="string">''</span>).split(<span class="string">'&amp;'</span>),</span><br><span class="line">                len = seg.length, i = <span class="number">0</span>, s;</span><br><span class="line">            <span class="keyword">for</span> (;i&lt;len;i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!seg[i]) &#123; <span class="keyword">continue</span>; &#125;</span><br><span class="line">                s = seg[i].split(<span class="string">'='</span>);</span><br><span class="line">                ret[s[<span class="number">0</span>]] = s[<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> ret;</span><br><span class="line">        &#125;)(),</span><br><span class="line">        file: (a.pathname.match(<span class="comment">//([^/?#]+)$/i) || [,''])[1],</span></span><br><span class="line">        hash: a.hash.replace(<span class="string">'#'</span>,<span class="string">''</span>),</span><br><span class="line">        path: a.pathname.replace(<span class="regexp">/^([^/])/</span>,<span class="string">'/$1'</span>),</span><br><span class="line">        relative: (a.href.match(<span class="regexp">/tps?:/</span><span class="regexp">/[^/]+(.+)/</span>) || [,<span class="string">''</span>])[<span class="number">1</span>],</span><br><span class="line">        segments: a.pathname.replace(<span class="regexp">/^/</span><span class="regexp">/,'').split('/</span><span class="string">')</span></span><br><span class="line"><span class="string">    &#125;;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong> Usage </strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myURL = parseURL(<span class="string">'http://abc.com:8080/dir/index.html?id=255&amp;m=hello#top'</span>);</span><br><span class="line"> </span><br><span class="line">myURL.file;     <span class="comment">// = 'index.html'</span></span><br><span class="line">myURL.hash;     <span class="comment">// = 'top'</span></span><br><span class="line">myURL.host;     <span class="comment">// = 'abc.com'</span></span><br><span class="line">myURL.query;    <span class="comment">// = '?id=255&amp;m=hello'</span></span><br><span class="line">myURL.params;   <span class="comment">// = Object = &#123; id: 255, m: hello &#125;</span></span><br><span class="line">myURL.path;     <span class="comment">// = '/dir/index.html'</span></span><br><span class="line">myURL.segments; <span class="comment">// = Array = ['dir', 'index.html']</span></span><br><span class="line">myURL.port;     <span class="comment">// = '8080'</span></span><br><span class="line">myURL.protocol; <span class="comment">// = 'http'</span></span><br><span class="line">myURL.source;   <span class="comment">// = 'http://abc.com:8080/dir/index.html?id=255&amp;m=hello#top'</span></span><br></pre></td></tr></table></figure>
+<p>原文转自这里 <a href="http://james.padolsey.com/javascript/parsing-urls-with-the-dom/" target="_blank" rel="noopener">http://james.padolsey.com/javascript/parsing-urls-with-the-dom/</a> 。居然是09年的！！(#ﾟДﾟ)</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/01/01/初识-Gulp/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          初识 Gulp
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/07/01/正则表达式总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          正则表达式总结
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="post-Parsing-URLs-with-the-DOM" data-title="Parsing URLs with the DOM!" data-url="http://www.tangrui.win/blog/2015/07/28/Parsing-URLs-with-the-DOM/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"troywith77"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0]
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+	<!-- 多说公共JS代码 end -->
+</section>
+
+    </div>
+    <footer id="footer">
+	<div class="footer-blog-title">
+		<p>&copy; 2018 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<p>Glad to meet you here!<br /></p>
+		<p>If you like the theme, go get it! <a href="https://github.com/troywith77/zenT">Install !</a></p>
+	</div>
+</footer>
+    
+
+<script src="/blog/js/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+  </div>
+</body>
+</html>
