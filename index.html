@@ -50,6 +50,46 @@
     <div id="main">
       
   
+    <article id="post-Tech-Lead" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2018/04/20/Tech-Lead/" class="article-date">
+  <time datetime="2018-04-20T09:24:30.000Z" itemprop="datePublished">04-20-2018</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2018/04/20/Tech-Lead/">Tech Lead</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>Tech Lead 又一次下架了 Youtube 上的全部视频， So Sad</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+  
     <article id="post-获取-JavaScript-中的嵌套对象属性" class="post">
 	<footer class="entry-meta-header">
 		<span class="meta-elements date">
@@ -497,76 +537,6 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myURL = parseURL(<span class="string">'http://abc.com:8080/dir/index.html?id=255&amp;m=hello#top'</span>);</span><br><span class="line"> </span><br><span class="line">myURL.file;     <span class="comment">// = 'index.html'</span></span><br><span class="line">myURL.hash;     <span class="comment">// = 'top'</span></span><br><span class="line">myURL.host;     <span class="comment">// = 'abc.com'</span></span><br><span class="line">myURL.query;    <span class="comment">// = '?id=255&amp;m=hello'</span></span><br><span class="line">myURL.params;   <span class="comment">// = Object = &#123; id: 255, m: hello &#125;</span></span><br><span class="line">myURL.path;     <span class="comment">// = '/dir/index.html'</span></span><br><span class="line">myURL.segments; <span class="comment">// = Array = ['dir', 'index.html']</span></span><br><span class="line">myURL.port;     <span class="comment">// = '8080'</span></span><br><span class="line">myURL.protocol; <span class="comment">// = 'http'</span></span><br><span class="line">myURL.source;   <span class="comment">// = 'http://abc.com:8080/dir/index.html?id=255&amp;m=hello#top'</span></span><br></pre></td></tr></table></figure>
 <p>原文转自这里 <a href="http://james.padolsey.com/javascript/parsing-urls-with-the-dom/" target="_blank" rel="noopener">http://james.padolsey.com/javascript/parsing-urls-with-the-dom/</a> 。居然是09年的！！(#ﾟДﾟ)</p>
 
-    
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-			</span>
-			<span class="tags">
-				
-			</span>
-		</div>
-	</footer>
-	
-</article>
-  
-    <article id="post-正则表达式总结" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/blog/2015/07/01/正则表达式总结/" class="article-date">
-  <time datetime="2015-07-01T05:24:33.000Z" itemprop="datePublished">07-01-2015</time>
-</a>
-		</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/blog/2015/07/01/正则表达式总结/">正则表达式总结</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-			<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/pattern/modifiers<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>实例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> patt = <span class="regexp">/w3cschool/i</span></span><br></pre></td></tr></table></figure>
-<p>实例解析：</p>
-<p>/w3cschool/i  是一个正则表达式。<br>w3cschool  是一个模式 (用于检索)。i  是一个修饰符 (搜索不区分大小写)。</p>
-<h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><table>
-<thead>
-<tr>
-<th>修饰符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>i</td>
-<td>执行对大小写不敏感的匹配。</td>
-</tr>
-<tr>
-<td>g</td>
-<td>执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。</td>
-</tr>
-<tr>
-<td>m</td>
-<td>执行多行匹配。</td>
-</tr>
-</tbody>
-</table>
-			
-				<p class="article-more-link">
-					<a href="/blog/2015/07/01/正则表达式总结/#more">Read More</a>
-				</p>
-      
     
 	</div>
 	<footer class="entry-footer">
