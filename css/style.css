@@ -110,7 +110,7 @@ button::-moz-focus-inner {
 body {
   background: #fff;
   color: #4f5759;
-  font: 14px 'Open Sans', 'Helvetica Neue', 'Helvetica', simsun, 'Arial', 'メイリオ', Meiryo, 'MS PGothic', 'Microsoft Yahei', sans-serif;
+  font: 14px 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, 'sans-serif';
   text-rendering: optimizelegibility;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: subpixel-antialiased;
@@ -412,7 +412,9 @@ pre .deletion {
   font-size: 85%;
   text-transform: uppercase;
   background: #000;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 3;
 }
 .nav ul {
   display: -webkit-box;
@@ -485,6 +487,7 @@ pre .deletion {
 #bg {
   position: relative;
   height: 400px;
+  height: 100vh;
   letter-spacing: 0.4em;
   background: url("/blog/images/background-1.jpg");
   background-attachment: fixed;
@@ -535,9 +538,12 @@ pre .deletion {
   margin-left: auto;
   margin-right: auto;
 }
+#main {
+  margin: 5em 0;
+}
 .post {
-  margin-top: 5em;
-  margin-bottom: 5em;
+  margin-top: 3em;
+  margin-bottom: 3em;
   position: relative;
   border-bottom: 1px solid #fff;
 }
@@ -705,7 +711,7 @@ pre .deletion {
 }
 .entry-content blockquote footer {
   font-size: 14px;
-  font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', simsun, 'Arial', 'メイリオ', Meiryo, 'MS PGothic', 'Microsoft Yahei', sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, 'sans-serif';
 }
 .entry-content blockquote footer cite:before {
   content: "—";
@@ -1066,6 +1072,7 @@ pre .deletion {
 @media (max-width: 767px) {
   #bg {
     display: none;
+    background: inherit;
   }
   #container {
     width: 85%;
@@ -1172,7 +1179,7 @@ pre .deletion {
   }
   .mb-search input {
     background: #fff;
-    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', simsun, 'Arial', 'メイリオ', Meiryo, 'MS PGothic', 'Microsoft Yahei', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, 'sans-serif';
     font-size: 15px;
     padding: 5px 10px;
     border-bottom: 2px solid #ddd !important;
@@ -1194,55 +1201,36 @@ pre .deletion {
     margin-bottom: 1em;
   }
 }
-#ds-thread #ds-reset a.ds-like-thread-button {
-  background: #fff !important;
+.toc-inner {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: sticky;
+  top: 80px;
+  margin: 2em 0 1em;
+  padding: 0.6em 1em;
+  background: #f9f9f9;
+  border-radius: 2px;
+  z-index: 2;
+  width: 300px;
 }
-#ds-thread #ds-reset .ds-sort a.ds-current,
-#ds-thread #ds-reset .ds-sort a:active {
-  color: #33a6b8 !important;
+.toc-inner .toc-header {
+  font-size: 130%;
 }
-#ds-thread #ds-reset .ds-textarea-wrapper {
-  background: #fff !important;
-  border-color: #ddd !important;
+.toc-inner .toc li {
+  margin: 0.5em 0;
 }
-#ds-thread #ds-reset .ds-post-options {
-  background: #fff !important;
-  border-color: #ddd !important;
+.post-container {
+  position: relative;
 }
-#ds-thread #ds-reset .ds-post-button {
-  background: #fff !important;
-  border-color: #ddd !important;
+.post-container .toc-container {
+  position: absolute;
+  top: 0;
+  right: -320px;
+  height: 100%;
 }
-#ds-thread #ds-reset li.ds-tab a.ds-current {
-  background: #fff !important;
-}
-#ds-thread #ds-reset li.ds-tab a {
-  border-radius: 0 !important;
-}
-#ds-reset .ds-avatar img {
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-}
-#ds-thread #ds-reset .ds-toolbar-button {
-  opacity: 0.4 !important;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)" !important;
-  filter: alpha(opacity=40) !important;
-}
-#ds-thread #ds-reset .ds-login-buttons .ds-more-services {
-  color: #33a6b8 !important;
-}
-#ds-thread #ds-reset .ds-post-button {
-  color: #777 !important;
-}
-#ds-reset .ds-service-link {
-  background: none !important;
-  padding-left: 0 !important;
-  color: #33a6b8 !important;
-}
-#ds-reset .ds-service-link:hover {
-  color: #55c8da !important;
-}
-#ds-thread #ds-reset .ds-login-buttons .ds-service-list li {
-  width: 40px !important;
-  text-align: center;
+@media screen and (max-width: 767px) {
+  .toc-container {
+    display: none;
+  }
 }
