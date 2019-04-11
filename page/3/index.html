@@ -16,10 +16,6 @@
 <meta name="twitter:title" content="Troy&#39;s Blog">
 <meta name="twitter:description" content="属于 Troy 的写字的地方 | Troy&apos;s Blog | blog | 前端 | Front-end">
   
-    <link rel="alternative" href="/atom.xml" title="Troy&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="//7xjr92.com1.z0.glb.clouddn.com/images/favicon.ico">
   
   <link rel="stylesheet" href="/blog/css/style.css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -34,7 +30,7 @@
   </div>
   <nav class="nav">
     <ul>
-      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="http://tangrui.win">About</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
+      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
     </ul>
   </nav>
   <div id="container">
@@ -49,6 +45,50 @@
 </header>
     <div id="main">
       
+  
+    <article id="post-JavaScript-DOM-编程艺术-第六章" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/03/26/JavaScript-DOM-编程艺术-第六章/" class="article-date">
+  <time datetime="2015-03-26T12:31:52.000Z" itemprop="datePublished">03-26-2015</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2015/03/26/JavaScript-DOM-编程艺术-第六章/">JavaScript DOM 编程艺术 第六章</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+			<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prepareGallery</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementById||!<span class="built_in">document</span>.getElementsByTagName||!<span class="built_in">document</span>.getElementById(<span class="string">"imagegallery"</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">//检测浏览器是否支持以上方法及id为"imagegallery"的对象是否存在</span></span><br><span class="line">    <span class="keyword">var</span> gallery = <span class="built_in">document</span>.getElementById(<span class="string">"imagegallery"</span>);</span><br><span class="line">    <span class="comment">//将id为"imagegallery"的对象赋给变量 gallery</span></span><br><span class="line">    <span class="keyword">var</span> links = gallery.getElementsByTagName(<span class="string">"a"</span>);</span><br><span class="line">    <span class="comment">//将gallery里的所有a元素赋给links变量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; links.length; i ++)&#123;</span><br><span class="line">        <span class="comment">//遍历links里的元素</span></span><br><span class="line">        links.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> showPic(<span class="keyword">this</span>) ? <span class="literal">false</span> : <span class="literal">true</span>;</span><br><span class="line">            <span class="comment">//像links里的元素添加onclick事件</span></span><br><span class="line">            <span class="comment">//如果showPic函数返回true则onclick事件为false，浏览器检测不到点击事件</span></span><br><span class="line">            <span class="comment">//就不会打开新链接，反之亦然</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showPic</span>(<span class="params">whichpic</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">document</span>.getElementById(<span class="string">"placeholder"</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">//检查“placeholder”是否存在</span></span><br><span class="line">    <span class="keyword">var</span> source = whichpic.getAttribute(<span class="string">"href"</span>);</span><br><span class="line">    <span class="comment">//获取运行showPic函数的元素的"href"值并将其赋给source变量</span></span><br><span class="line">    <span class="keyword">var</span> placeholder = <span class="built_in">document</span>.getElementById(<span class="string">"placeholder"</span>);</span><br><span class="line">    <span class="comment">//获取id为"placeholder"的对象并将其赋给placeholder变量</span></span><br><span class="line">    <span class="keyword">if</span>(placeholder.nodeName != <span class="string">"IMG"</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">//检查placeholder的节点名称是不是"IMG"(大写)，检查它是不是img元素</span></span><br><span class="line">    placeholder.setAttribute(<span class="string">"src"</span>, source);</span><br><span class="line">    <span class="comment">//设置placeholder的"src"属性为source变量的值</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">document</span>.getElementById(<span class="string">"description"</span>))&#123;</span><br><span class="line">        <span class="comment">//如果存在id为"description"的对象的话，就运行一下代码</span></span><br><span class="line">        <span class="keyword">var</span> text = whichpic.getAttribute(<span class="string">"title"</span>) ? whichpic.getAttribute(<span class="string">"title"</span>) : <span class="string">""</span>;</span><br><span class="line">        <span class="comment">//如果存在"title"属性的话就将值赋给text，如果没有就将空字符串赋给text</span></span><br><span class="line">        <span class="keyword">var</span> description = <span class="built_in">document</span>.getElementById(<span class="string">"description"</span>);</span><br><span class="line">        <span class="keyword">if</span>(description.firstChild.nodeType == <span class="number">3</span>)&#123;</span><br><span class="line">            description.fitstChild.nodeValue = text;</span><br><span class="line">            <span class="comment">//将description的第一个子元素(即文本节点)的节点值设置为text的值</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+			
+				<p class="article-more-link">
+					<a href="/blog/2015/03/26/JavaScript-DOM-编程艺术-第六章/#more">Read More</a>
+				</p>
+      
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
   
     <article id="post-JavaScript-DOM-编程艺术-第五章" class="post">
 	<footer class="entry-meta-header">
@@ -302,7 +342,7 @@
     </div>
     <footer id="footer">
 	<div class="footer-blog-title">
-		<p>&copy; 2018 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<p>&copy; 2019 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 		<p>Glad to meet you here!<br /></p>
 		<p>If you like the theme, go get it! <a href="https://github.com/troywith77/zenT">Install !</a></p>
 	</div>

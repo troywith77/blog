@@ -16,10 +16,6 @@
 <meta name="twitter:title" content="Troy&#39;s Blog">
 <meta name="twitter:description" content="属于 Troy 的写字的地方 | Troy&apos;s Blog | blog | 前端 | Front-end">
   
-    <link rel="alternative" href="/atom.xml" title="Troy&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="//7xjr92.com1.z0.glb.clouddn.com/images/favicon.ico">
   
   <link rel="stylesheet" href="/blog/css/style.css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -34,7 +30,7 @@
   </div>
   <nav class="nav">
     <ul>
-      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="http://tangrui.win">About</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
+      <li><a href="/blog">Home</a></li><li><a href="/blog/archives">Archives</a></li><li><a href="http://www.github.com/troywith77">Github</a></li><li><a href="mailto:ruitang307@gmail.com">Mail me</a></li>
     </ul>
   </nav>
   <div id="container">
@@ -49,6 +45,58 @@
 </header>
     <div id="main">
       
+  
+    <article id="post-一步一步实现一个-Function-prototype-bind-polyfill" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2019/04/11/一步一步实现一个-Function-prototype-bind-polyfill/" class="article-date">
+  <time datetime="2019-04-11T02:14:02.000Z" itemprop="datePublished">04-11-2019</time>
+</a>
+		</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2019/04/11/一步一步实现一个-Function-prototype-bind-polyfill/">一步一步实现一个 Function.prototype.bind polyfill</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>这篇文章的目的是模拟一个 bind 函数，我们知道 JavaScript 中有 call 和 apply 可以用来执行函数并且改变函数内 this 的指向，bind 函数的作用也是类似的，但是 bind 并不会立即执行函数，而是会返回一个新的函数，今天我们就来自己一步一步来实现一个 bind 函数。由于是 polyfill，语法全部使用 ES5。</p>
+<p>首先最简单的，实现一下接收一个对象并且返回一个新的函数把 this 指向这个对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params">targetThis</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 保存原始函数到 func 变量</span></span><br><span class="line">  <span class="keyword">var</span> func = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 通过 apply 改变原始函数的 this 指向为传入的 targetThis</span></span><br><span class="line">    <span class="keyword">return</span> func.apply(targetThis)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>: <span class="number">100</span> &#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.a</span><br><span class="line">&#125;</span><br><span class="line">foo() <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">var</span> bar = foo.bind(obj)</span><br><span class="line">bar() <span class="comment">// 100</span></span><br></pre></td></tr></table></figure>
+<p>这里我们简单实现了 bind，然后接下来我们要让在调用 bind 时能够接受参数，并且 bind 返回的函数还能继续接受参数，最终把所有参数拼接在一起执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params">targetThis</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 保存原始函数到 func 变量</span></span><br><span class="line">  <span class="keyword">var</span> func = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">var</span> slice = <span class="built_in">Array</span>.prototype.slice</span><br><span class="line">  <span class="keyword">var</span> concat = <span class="built_in">Array</span>.prototype.concat</span><br><span class="line">  <span class="keyword">var</span> baseArgs = slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 通过 apply 改变原始函数的 this 指向为传入的 targetThis</span></span><br><span class="line">    <span class="keyword">return</span> func.apply(</span><br><span class="line">      targetThis,</span><br><span class="line">      <span class="comment">// 把 bind 时传入的参数和返回函数的参数拼接在一起</span></span><br><span class="line">      baseArgs.concat(slice.call(<span class="built_in">arguments</span>))</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a, b)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> bar = foo.bind(<span class="literal">null</span>, <span class="number">1</span>)</span><br><span class="line">bar(<span class="number">2</span>) <span class="comment">// 1, 2</span></span><br></pre></td></tr></table></figure>
+<p>到这里我们的 bind 函数就实现得差不多了，为了严谨一点，我们需要再加上一些边界条件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params">targetThis</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 保存原始函数到 func 变量</span></span><br><span class="line">  <span class="keyword">var</span> func = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">var</span> slice = <span class="built_in">Array</span>.prototype.slice</span><br><span class="line">  <span class="keyword">var</span> concat = <span class="built_in">Array</span>.prototype.concat</span><br><span class="line">  <span class="keyword">var</span> baseArgs = slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> func !== <span class="string">'function'</span>) &#123;</span><br><span class="line">    <span class="comment">// 调用 bind 的原始对象必须是函数，一般情况都是满足条件的，</span></span><br><span class="line">    <span class="comment">// 但是如果某个构造函数继承 new Function，</span></span><br><span class="line">    <span class="comment">// 就可能出现实例非函数的情况</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Bind must be called on a function!'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 通过 apply 改变原始函数的 this 指向为传入的 targetThis</span></span><br><span class="line">    <span class="keyword">return</span> func.apply(</span><br><span class="line">      targetThis,</span><br><span class="line">      <span class="comment">// 把 bind 时传入的参数和返回函数的参数拼接在一起</span></span><br><span class="line">      baseArgs.concat(slice.call(<span class="built_in">arguments</span>))</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>加上条件判断我们的 Function.prototype.bind polyfill 就完成了，在 MDN 上也提供了两种 polyfill，第一种和我们实现的类似，然后还有第二种是可以支持返回的函数当做构造函数使用的，当然这种情况非常少，MDN 上也推荐我们不要这样使用，但是这里我们也可以来实现一下支持 new 关键字。</p>
+<p>要支持 new 关键字，主要要实现两个特性：</p>
+<ol>
+<li>一是构造函数内的 this 不会受 bind 的 this 影响</li>
+<li>二是可以继承原始函数的prototype。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params">targetThis</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 保存原始函数到 func 变量</span></span><br><span class="line">  <span class="keyword">var</span> func = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">var</span> slice = <span class="built_in">Array</span>.prototype.slice</span><br><span class="line">  <span class="keyword">var</span> concat = <span class="built_in">Array</span>.prototype.concat</span><br><span class="line">  <span class="keyword">var</span> baseArgs = slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>)</span><br><span class="line">  <span class="comment">// 我们需要一个空函数做中转来让 fBound 继承 func，否则如果直接用 fBound.prototype = func.prototype，</span></span><br><span class="line">  <span class="comment">// 修改 fBound.prototype 的时候会影响到 func.prototype</span></span><br><span class="line">  <span class="keyword">var</span> fNOP = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> func !== <span class="string">'function'</span>) &#123;</span><br><span class="line">    <span class="comment">// 调用 bind 的原始对象必须是函数，一般情况都是满足条件的，</span></span><br><span class="line">    <span class="comment">// 但是如果某个构造函数继承 new Function，</span></span><br><span class="line">    <span class="comment">// 就可能出现实例非函数的情况</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Bind must be called on a function!'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> fBound = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 做构造函数使用时，这里的 this 会指向实例对象，</span></span><br><span class="line">    <span class="comment">// 我们要判断 apply 的参数用 this 或者 targetThis</span></span><br><span class="line">    <span class="keyword">return</span> func.apply(</span><br><span class="line">      <span class="comment">// 如果 fNOP 在 this 的原型链上，证明 fBound 是做构造函数使用的，应该传递构造函数内的 this</span></span><br><span class="line">      fNOP.prototype.isPrototypeOf(<span class="keyword">this</span>) ? <span class="keyword">this</span> : targetThis,</span><br><span class="line">      <span class="comment">// 把 bind 时传入的参数和返回函数的参数拼接在一起</span></span><br><span class="line">      baseArgs.concat(slice.call(<span class="built_in">arguments</span>))</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.prototype) &#123;</span><br><span class="line">    <span class="comment">// 让 fNOP 可以访问到原始函数的 prototype</span></span><br><span class="line">    fNOP.prototype = <span class="keyword">this</span>.prototype;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 让 fBound 继承这个空函数，避免修改原型时对原型链造成影响</span></span><br><span class="line">  fBound.prototype = <span class="keyword">new</span> fNOP()</span><br><span class="line">  <span class="keyword">return</span> fBound</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
   
     <article id="post-Sum of Pairs - Code Wars" class="post">
 	<footer class="entry-meta-header">
@@ -512,51 +560,6 @@
 	
 </article>
   
-    <article id="post-Parsing-URLs-with-the-DOM" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/blog/2015/07/28/Parsing-URLs-with-the-DOM/" class="article-date">
-  <time datetime="2015-07-28T14:10:54.000Z" itemprop="datePublished">07-28-2015</time>
-</a>
-		</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/blog/2015/07/28/Parsing-URLs-with-the-DOM/">Parsing URLs with the DOM!</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-    	<p>神奇地利用原生的 DOM API 来解析 URL~ 方法是创建一个 a 标签，然后把 URL 设置为 a 标签的 href 属性。具体的看下面的代码吧~</p>
-<p><strong> PaeseURL </strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// This function creates a new anchor element and uses location</span></span><br><span class="line"><span class="comment">// properties (inherent) to get the desired URL data. Some String</span></span><br><span class="line"><span class="comment">// operations are used (to normalize results across browsers).</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseURL</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a =  <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">    a.href = url;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        source: url,</span><br><span class="line">        protocol: a.protocol.replace(<span class="string">':'</span>,<span class="string">''</span>),</span><br><span class="line">        host: a.hostname,</span><br><span class="line">        port: a.port,</span><br><span class="line">        query: a.search,</span><br><span class="line">        params: (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> ret = &#123;&#125;,</span><br><span class="line">                seg = a.search.replace(<span class="regexp">/^?/</span>,<span class="string">''</span>).split(<span class="string">'&amp;'</span>),</span><br><span class="line">                len = seg.length, i = <span class="number">0</span>, s;</span><br><span class="line">            <span class="keyword">for</span> (;i&lt;len;i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!seg[i]) &#123; <span class="keyword">continue</span>; &#125;</span><br><span class="line">                s = seg[i].split(<span class="string">'='</span>);</span><br><span class="line">                ret[s[<span class="number">0</span>]] = s[<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> ret;</span><br><span class="line">        &#125;)(),</span><br><span class="line">        file: (a.pathname.match(<span class="comment">//([^/?#]+)$/i) || [,''])[1],</span></span><br><span class="line">        hash: a.hash.replace(<span class="string">'#'</span>,<span class="string">''</span>),</span><br><span class="line">        path: a.pathname.replace(<span class="regexp">/^([^/])/</span>,<span class="string">'/$1'</span>),</span><br><span class="line">        relative: (a.href.match(<span class="regexp">/tps?:/</span><span class="regexp">/[^/]+(.+)/</span>) || [,<span class="string">''</span>])[<span class="number">1</span>],</span><br><span class="line">        segments: a.pathname.replace(<span class="regexp">/^/</span><span class="regexp">/,'').split('/</span><span class="string">')</span></span><br><span class="line"><span class="string">    &#125;;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
-<p><strong> Usage </strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myURL = parseURL(<span class="string">'http://abc.com:8080/dir/index.html?id=255&amp;m=hello#top'</span>);</span><br><span class="line"> </span><br><span class="line">myURL.file;     <span class="comment">// = 'index.html'</span></span><br><span class="line">myURL.hash;     <span class="comment">// = 'top'</span></span><br><span class="line">myURL.host;     <span class="comment">// = 'abc.com'</span></span><br><span class="line">myURL.query;    <span class="comment">// = '?id=255&amp;m=hello'</span></span><br><span class="line">myURL.params;   <span class="comment">// = Object = &#123; id: 255, m: hello &#125;</span></span><br><span class="line">myURL.path;     <span class="comment">// = '/dir/index.html'</span></span><br><span class="line">myURL.segments; <span class="comment">// = Array = ['dir', 'index.html']</span></span><br><span class="line">myURL.port;     <span class="comment">// = '8080'</span></span><br><span class="line">myURL.protocol; <span class="comment">// = 'http'</span></span><br><span class="line">myURL.source;   <span class="comment">// = 'http://abc.com:8080/dir/index.html?id=255&amp;m=hello#top'</span></span><br></pre></td></tr></table></figure>
-<p>原文转自这里 <a href="http://james.padolsey.com/javascript/parsing-urls-with-the-dom/" target="_blank" rel="noopener">http://james.padolsey.com/javascript/parsing-urls-with-the-dom/</a> 。居然是09年的！！(#ﾟДﾟ)</p>
-
-    
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-			</span>
-			<span class="tags">
-				
-			</span>
-		</div>
-	</footer>
-	
-</article>
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><a class="extend next" rel="next" href="/blog/page/2/">Next &raquo;</a>
@@ -566,7 +569,7 @@
     </div>
     <footer id="footer">
 	<div class="footer-blog-title">
-		<p>&copy; 2018 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<p>&copy; 2019 Troy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 		<p>Glad to meet you here!<br /></p>
 		<p>If you like the theme, go get it! <a href="https://github.com/troywith77/zenT">Install !</a></p>
 	</div>
